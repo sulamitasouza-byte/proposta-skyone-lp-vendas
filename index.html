@@ -438,26 +438,31 @@
 
   /* ===== KV atual (site + Instagram da Skyone) ===== */
   :root{--bg:#01041A;--bg2:#020725;--card:#06103F;--card2:#0A1752;--glow:0 0 24px rgba(0,176,255,.45)}
+  /* fundo: preto-azulado com feixes de luz azul elétrica */
   .hero{background:
     radial-gradient(60% 70% at 50% -10%,rgba(0,90,255,.55),transparent 70%),
     radial-gradient(420px 300px at 0% 100%,rgba(255,94,196,.22),transparent 70%),
     radial-gradient(700px 500px at 100% 60%,rgba(0,24,238,.45),transparent 65%),var(--bg)!important}
   #solucoes,#provas,#faq-sec,.ticker-sec{background:radial-gradient(80% 60% at 50% 0%,rgba(0,24,238,.18),transparent 70%),var(--bg2)!important}
+  /* títulos: branco puro, palavra-chave em caixa azul ou em lime */
   h1,h2{color:#FFFFFF}
   .hl-box{background:#00B0FF;color:#000A62;padding:0 .2em;border-radius:.18em;-webkit-box-decoration-break:clone;box-decoration-break:clone;
     box-shadow:0 0 30px rgba(0,176,255,.45)}
   .grad-txt{background:none!important;-webkit-background-clip:border-box;background-clip:border-box;color:var(--lime)!important;
     text-shadow:0 0 28px rgba(222,254,82,.25)}
+  /* rótulos mono em caixa alta com seta, como nos carrosséis */
   .kicker{text-transform:uppercase;letter-spacing:.22em;font-size:11.5px;color:#FAFAFA}
   .kicker::before{width:18px;height:4px;border:none;border-radius:99px;background:#00B0FF;transform:none;box-shadow:0 0 10px #00B0FF}
   .kicker::after{content:'→';color:var(--lime);letter-spacing:0}
   .dor-cta .lbl,.ticker-label,.peek{letter-spacing:.22em}
+  /* ícones em placa de vidro com contorno neon */
   .rota .ic,.dor-btn .ic,.pain .emo,.fic,.prod .pi,.nv-ic{display:inline-flex;align-items:center;justify-content:center;width:48px;height:48px;flex:none;
     border-radius:14px;background:linear-gradient(160deg,rgba(0,176,255,.22),rgba(0,24,238,.12));border:1.5px solid rgba(0,176,255,.65);
     box-shadow:var(--glow),inset 0 0 14px rgba(0,176,255,.25)}
   .dor-btn .ic{width:38px;height:38px;border-radius:11px}
   .rota .ic .mi,.dor-btn .ic .mi,.pain .emo .mi,.prod .pi .mi,.nv-ic .mi{color:#BFEAFF;font-size:26px}
   .pain .stat .mi{color:#FFD45E}
+  /* cards com borda luminosa no hover */
   .rota:hover,.dor-btn:hover,.feat:hover,.pain:hover{border-color:#00B0FF;box-shadow:var(--glow)}
   .ppanel{border-color:rgba(0,176,255,.4);box-shadow:0 0 60px rgba(0,24,238,.25)}
   .quiz{background:linear-gradient(180deg,rgba(10,23,82,.9),rgba(6,16,63,.95))}
@@ -475,12 +480,14 @@
   .kicker::after{content:none}
   .nv-kw{border-bottom:none}
   .nav a.nv:hover .nv-kw{color:var(--lime)}
+  /* selos do hero: uma linha de texto discreta em vez de pílulas */
   .hero-badges{gap:18px;margin-top:18px}
   .hb{border:none;background:none;padding:0;font-size:13px}
   .hb svg{width:13px;height:13px}
   .hb b{font-family:'Inter',sans-serif!important;font-stretch:100%;font-weight:600}
   .peek{font-size:0;gap:0}
   .peek svg{width:20px;height:20px}
+  /* menos brilho, mais respiro */
   :root{--glow:0 0 14px rgba(0,176,255,.25)}
   .rota .ic,.dor-btn .ic,.pain .emo,.fic,.prod .pi,.nv-ic{box-shadow:none;border-color:rgba(0,176,255,.4);background:rgba(0,176,255,.08)}
   .quiz-glow{box-shadow:0 0 0 1px rgba(250,250,250,.08),0 30px 60px rgba(0,0,0,.45)}
@@ -504,7 +511,9 @@
   @media(max-width:1180px){.hero-badges{flex-wrap:wrap}}
   .q-viewport{min-height:170px}.q-done{min-height:170px}
 
-  /* ===== HIERARQUIA POR CONTRASTE (UX) ===== */
+  /* ===== HIERARQUIA POR CONTRASTE (UX) =====
+     1 cor de ação: o lime fica reservado para botões e estados ativos.
+     Ênfase nos títulos por contraste: a frase-chave em branco pleno, o resto em branco 60%. */
   h1,h2{color:rgba(250,250,250,.58)!important}
   h1 .hl-box,h1 .grad-txt,h1 .lime-txt,h2 .grad-txt,h2 .lime-txt,h2 .hl-box{
     background:none!important;box-shadow:none!important;padding:0!important;color:#FFFFFF!important;-webkit-text-fill-color:#FFFFFF}
@@ -526,40 +535,27 @@
     @keyframes swipeHint{0%,100%{transform:translateX(0)}40%{transform:translateX(-56px)}70%{transform:translateX(-56px)}}
     .hero{padding-top:162px}
   }
-
-  /* ===== vídeos dos cases: KV + trava de experiência ===== */
+  /* ===== vídeos dos cases: tocam na própria página ===== */
   button.video-thumb{all:unset;box-sizing:border-box;display:block;width:100%;cursor:pointer;position:relative;aspect-ratio:16/9;overflow:hidden;
     border-radius:14px 14px 0 0;background:var(--card2) center/cover no-repeat}
   button.video-thumb:focus-visible{outline:2px solid var(--lime);outline-offset:2px}
-  /* Filtro KV sobre a thumb para contraste limpo do badge e play */
-  button.video-thumb::after{content:'';position:absolute;inset:0;
-    background:linear-gradient(180deg,rgba(1,4,26,.25) 0%,rgba(0,10,98,.72) 100%);
-    z-index:1;transition:opacity .3s ease}
-  button.video-thumb:hover::after{opacity:.42}
-  .vt-prev{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .3s;z-index:0}
+  .vt-prev{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .3s}
   .video-thumb.previewing .vt-prev{opacity:1}
   .video-thumb .play{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);z-index:2;width:56px;height:56px;border-radius:50%;
     background:var(--lime);display:flex;align-items:center;justify-content:center;transition:transform .2s}
   .video-thumb:hover .play{transform:translate(-50%,-50%) scale(1.08)}
-  .vmodal{position:fixed;inset:0;z-index:300;display:none;align-items:center;justify-content:center;padding:70px 20px;background:rgba(1,4,26,.92);backdrop-filter:blur(8px)}
+  .vmodal{position:fixed;inset:0;z-index:300;display:none;align-items:center;justify-content:center;padding:70px 20px;background:rgba(1,4,26,.9)}
   .vmodal.on{display:flex}
-  .vbox{position:relative;width:min(960px,100%);aspect-ratio:16/9;background:#000;border-radius:16px;box-shadow:0 30px 80px rgba(0,0,0,.6);overflow:hidden}
-  /* Trava visual no topo do player para impedir clique no título/logo do YouTube */
-  .vbox::after{content:'';position:absolute;top:0;left:0;right:0;height:62px;z-index:5;background:transparent}
+  .vbox{position:relative;width:min(960px,100%);aspect-ratio:16/9;background:#000;border-radius:16px;box-shadow:0 30px 80px rgba(0,0,0,.6)}
   .vbox iframe,.vbox video{position:absolute;inset:0;width:100%;height:100%;border:0;border-radius:16px}
-  .vclose{position:absolute;top:calc(50% - min(270px, 28.125vw) - 48px);right:max(20px, calc(50% - 480px));z-index:10;background:rgba(1,4,26,.85);border:1px solid rgba(250,250,250,.3);color:#fff;border-radius:99px;padding:8px 16px;font:600 13px Inter,sans-serif;cursor:pointer;transition:border-color .2s,color .2s}
-  .vclose:hover{border-color:var(--lime);color:var(--lime)}
-  .vcta{position:absolute;bottom:calc(50% - min(270px, 28.125vw) - 64px);left:50%;transform:translateX(-50%);z-index:10;white-space:nowrap}
-  @media(max-width:640px){
-    .vclose{top:16px;right:16px}
-    .vcta{bottom:20px}
-  }
-  .vempty{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;text-align:center;padding:24px;color:var(--mut);font-size:14px;z-index:6}
+  .vclose{position:absolute;top:-46px;right:0;background:none;border:1px solid rgba(250,250,250,.3);color:#fff;border-radius:99px;padding:8px 14px;font:600 13px Inter,sans-serif;cursor:pointer}
+  .vcta{position:absolute;left:50%;bottom:-62px;transform:translateX(-50%);white-space:nowrap}
+  .vempty{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;text-align:center;padding:24px;color:var(--mut);font-size:14px}
 </style>
 </head>
 <body>
 
-<!-- ============ HEADER ============ -->
+<!-- ============ HEADER: só logo + botão ============ -->
 <header>
   <a class="logo" href="#hero" aria-label="Skyone — início">
     <svg xmlns="http://www.w3.org/2000/svg" height="24" style="width:auto" role="img" aria-label="Skyone" class="logo-img" viewBox="0 0 111 22" fill="none"><g clip-path="url(#clip_hdr)"><path d="M96.1016 17.1238C104.278 17.1238 110.901 10.5084 110.901 2.34131H105.368C105.368 7.43215 101.226 11.5702 96.1288 11.5702V17.0966L96.1016 17.1238Z" fill="#0517ED"></path><path d="M85.0078 17.1238C85.0078 8.95668 91.6308 2.34131 99.8073 2.34131V7.86773C94.7106 7.86773 90.5678 12.0057 90.5678 17.0966H85.0351L85.0078 17.1238Z" fill="#4FAFF8"></path><path d="M0.4089 12.8767C2.09872 13.884 4.08834 14.2924 5.26031 14.2924C6.32326 14.2924 6.95012 14.0201 6.95012 13.3395C6.95012 12.3867 5.56011 12.4956 3.73402 12.0056C1.41734 11.4339 0.0273285 10.4538 0.0273285 8.43926C0.0273285 5.82578 2.34401 4.35569 5.39658 4.35569C6.86836 4.35569 8.69445 4.65516 10.1117 5.33575V8.6026C8.47641 7.67699 6.56855 7.26864 5.47835 7.26864C4.46991 7.26864 3.8703 7.5681 3.8703 8.1398C3.8703 9.03818 5.2058 8.95651 7.03189 9.41931C9.37583 9.99101 10.8203 10.8894 10.8203 13.0128C10.8203 15.708 8.44915 17.1781 5.28756 17.1781C3.81579 17.1781 1.90793 16.8786 0.436155 16.1436V12.8223L0.4089 12.8767Z" fill="#FFFFFF"></path><path d="M12.5938 0H16.4095V9.855H16.464L20.7703 4.62804H25.1038L20.3887 10.1272L25.4582 16.9332H20.9611L16.4912 10.6445H16.4367V16.9332H12.621V0H12.5938Z" fill="#FFFFFF"></path><path d="M27.2831 21.7786H28.8367C30.8263 21.7786 32.6251 20.5535 33.3337 18.7295V18.6479L38.8938 4.65485H34.9963L32.1618 12.577L29.3273 4.65485H25.457L30.2539 16.9055L29.9814 17.5861C29.7361 18.1851 29.1365 18.5662 28.4823 18.5662H27.2559V21.8058L27.2831 21.7786Z" fill="#FFFFFF"></path><path d="M45.4894 4.35547C49.4141 4.35547 52.3577 7.15952 52.3577 10.7803C52.3577 14.401 49.4414 17.2051 45.4894 17.2051C41.5374 17.2051 38.6211 14.401 38.6211 10.7803C38.6211 7.15952 41.5374 4.35547 45.4894 4.35547ZM45.4894 13.9382C47.2065 13.9382 48.5419 12.5498 48.5419 10.7803C48.5419 9.01073 47.2065 7.62232 45.4894 7.62232C43.7723 7.62232 42.4368 9.01073 42.4368 10.7803C42.4368 12.5498 43.7723 13.9382 45.4894 13.9382Z" fill="#FFFFFF"></path><path d="M53.8553 4.62771H57.6165V5.7711H57.671C58.6249 5.00884 59.9332 4.35547 61.4867 4.35547C62.795 4.35547 63.9397 4.81827 64.7028 5.60776C65.466 6.39725 65.7658 7.4862 65.7658 9.25574V16.9328H61.9501V9.88189C61.9501 8.95628 61.8138 8.49348 61.514 8.16679C61.1869 7.78566 60.7508 7.64954 60.2057 7.64954C59.2245 7.64954 58.2979 8.13957 57.6165 8.68405V16.9601H53.8008V4.62771H53.8553Z" fill="#FFFFFF"></path><path d="M70.9169 11.7876C71.353 13.4754 72.743 14.2649 74.4873 14.2649C75.8773 14.2649 77.3764 13.8021 78.6574 12.9037V16.0889C77.4581 16.8512 75.6048 17.2051 73.9695 17.2051C69.9085 17.2051 66.9922 14.6733 66.9922 10.8347C66.9922 6.99617 70.0448 4.35547 73.4516 4.35547C76.477 4.35547 79.3387 6.3428 79.3387 10.4808C79.3387 10.9164 79.3387 11.4609 79.257 11.7876H70.8897H70.9169ZM75.8501 9.39186C75.6321 8.0579 74.6509 7.26841 73.4244 7.26841C72.1979 7.26841 71.2167 8.00345 70.8897 9.39186H75.8501Z" fill="#FFFFFF"></path></g><defs><clipPath id="clip_hdr"><rect width="110.901" height="21.779" fill="white"></rect></clipPath></defs></svg>
@@ -707,6 +703,7 @@
     </div>
   </div>
 </div>
+
 
 <!-- ============ ROTEADOR: O QUE VOCÊ VEIO BUSCAR? ============ -->
 <section id="rota">
@@ -921,7 +918,7 @@
   </div>
 </section>
 
-<!-- ============ DEPOIMENTOS (VÍDEOS) ============ -->
+<!-- ============ DEPOIMENTOS ============ -->
 <section id="provas" style="background:var(--bg2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
   <div class="wrap">
     <span class="kicker rv">Prova social, não promessa</span>
@@ -929,15 +926,8 @@
     <p class="sub rv d2">Depoimentos reais, de cases públicos da Skyone. Toque no play e assista aqui mesmo, sem sair da página.</p>
 
     <div class="quotes">
-      <!-- CASE 1: PANASONIC -->
       <div class="quote rv">
-        <button type="button" class="video-thumb" 
-          data-yt="COLE_ID_PANASONIC_AQUI" 
-          data-mp4="" 
-          data-preview="" 
-          data-poster="" 
-          data-title="Case Panasonic" 
-          aria-label="Assistir ao case Panasonic aqui na página">
+        <button type="button" class="video-thumb" data-yt="" data-mp4="" data-preview="" data-poster="" data-title="Case Panasonic" aria-label="Assistir ao case Panasonic aqui na página">
           <video class="vt-prev" muted loop playsinline preload="none" aria-hidden="true"></video>
           <span class="vtag">CASE EM VÍDEO</span>
           <span class="play"><svg width="22" height="22" viewBox="0 0 24 24" fill="#000A62"><path d="M8 5v14l11-7z"/></svg></span>
@@ -953,15 +943,8 @@
         </div>
       </div>
 
-      <!-- CASE 2: LOPES SUPERMERCADOS -->
       <div class="quote rv d1">
-        <button type="button" class="video-thumb" 
-          data-yt="COLE_ID_LOPES_AQUI" 
-          data-mp4="" 
-          data-preview="" 
-          data-poster="" 
-          data-title="Case Lopes Supermercados" 
-          aria-label="Assistir ao case Lopes Supermercados aqui na página">
+        <button type="button" class="video-thumb" data-yt="" data-mp4="" data-preview="" data-poster="" data-title="Case Lopes Supermercados" aria-label="Assistir ao case Lopes Supermercados aqui na página">
           <video class="vt-prev" muted loop playsinline preload="none" aria-hidden="true"></video>
           <span class="vtag">CASE EM VÍDEO</span>
           <span class="play"><svg width="22" height="22" viewBox="0 0 24 24" fill="#000A62"><path d="M8 5v14l11-7z"/></svg></span>
@@ -977,15 +960,8 @@
         </div>
       </div>
 
-      <!-- CASE 3: CATUPIRY / NORDIS -->
       <div class="quote rv d2">
-        <button type="button" class="video-thumb" 
-          data-yt="COLE_ID_CATUPIRY_AQUI" 
-          data-mp4="" 
-          data-preview="" 
-          data-poster="" 
-          data-title="Case Catupiry" 
-          aria-label="Assistir ao case Catupiry aqui na página">
+        <button type="button" class="video-thumb" data-yt="" data-mp4="" data-preview="" data-poster="" data-title="Case Catupiry" aria-label="Assistir ao case Catupiry aqui na página">
           <video class="vt-prev" muted loop playsinline preload="none" aria-hidden="true"></video>
           <span class="vtag">CASE EM VÍDEO</span>
           <span class="play"><svg width="22" height="22" viewBox="0 0 24 24" fill="#000A62"><path d="M8 5v14l11-7z"/></svg></span>
@@ -1002,6 +978,7 @@
       </div>
     </div>
   </div>
+
 </section>
 
 <!-- ============ FAQ ============ -->
@@ -1058,15 +1035,13 @@
   ISO 27001 · Great Place to Work · Finep · Esta página é uma peça de campanha: depoimentos extraídos de cases públicos em skyone.solutions/cases.
 </footer>
 
-<!-- MODAL DE VÍDEO COM TRAVA DE EXPERIÊNCIA -->
 <div class="vmodal" id="vModal" role="dialog" aria-modal="true" aria-label="Vídeo do case">
-  <button type="button" class="vclose" id="vClose">Fechar ✕</button>
   <div class="vbox">
+    <button type="button" class="vclose" id="vClose">Fechar ✕</button>
     <div id="vSlot"></div>
+    <a class="btn vcta" href="#hero" id="vCta">Quero um resultado assim →</a>
   </div>
-  <a class="btn vcta" href="#hero" id="vCta">Quero um resultado assim →</a>
 </div>
-
 <!-- CTA flutuante mobile -->
 <div class="float-cta"><a class="btn" href="#hero" onclick="focusQuiz(event)">Começar — leva 30s →</a></div>
 
@@ -1118,12 +1093,14 @@ qNext.addEventListener('click', ()=>{
 });
 qBack.addEventListener('click', ()=>{ if(current>1) goTo(current-1); });
 
+/* campos de texto */
 ['fNome','fEmail','fEmpresa'].forEach(id=>{
   const el = document.getElementById(id);
   el.addEventListener('input', ()=>{ answers[id]=el.value; syncEcho(); validate(); });
   el.addEventListener('keydown', e=>{ if(e.key==='Enter' && !qNext.disabled){ e.preventDefault(); qNext.click(); }});
 });
 
+/* telefone com máscara (XX) XXXXX-XXXX */
 const fTel = document.getElementById('fTel');
 fTel.addEventListener('input', ()=>{
   let v = fTel.value.replace(/\D/g,'').slice(0,11);
@@ -1136,6 +1113,7 @@ fTel.addEventListener('input', ()=>{
 });
 fTel.addEventListener('keydown', e=>{ if(e.key==='Enter' && !qNext.disabled){ e.preventDefault(); qNext.click(); }});
 
+/* chips (faturamento) */
 document.querySelectorAll('.chips').forEach(group=>{
   const field = group.dataset.field;
   group.querySelectorAll('.chip').forEach(chip=>{
@@ -1144,7 +1122,7 @@ document.querySelectorAll('.chips').forEach(group=>{
       chip.classList.add('sel');
       answers[field] = chip.dataset.val;
       validate();
-      setTimeout(()=>{ if(!qNext.disabled) qNext.click(); }, 380);
+      setTimeout(()=>{ if(!qNext.disabled) qNext.click(); }, 380); /* avanço automático = menos fricção */
     });
   });
 });
@@ -1156,6 +1134,8 @@ function syncEcho(){
 }
 
 function submitQuiz(){
+  /* Aqui entra a integração com o CRM/endpoint de leads (POST com o objeto `answers`).
+     Campos: fNome, fEmail, fTel, fEmpresa, fFaturamento, fDor (dor que trouxe o lead), fProduto (produto de interesse). */
   console.log('LEAD:', JSON.stringify(answers));
   qBar.style.width = '100%';
   qNav.style.display = 'none';
@@ -1183,8 +1163,143 @@ const burger=document.getElementById('burger'),nav=document.getElementById('nav'
 burger.addEventListener('click',()=>nav.classList.toggle('open'));
 nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>nav.classList.remove('open')));
 
-/* ===== Vitrine ===== */
+/* ===== Vitrine: nav/botões abrem o produto certo; ?p= para campanhas ===== */
 const HERO={
   astro:["IA corporativa · Skyone Astro",'IA para o time inteiro, <span class="hl-box">sem vazar dado</span><br>e <span class="lime-txt">sem fatura em dólar.</span>',"+400 modelos de IA com bloqueio de dado sensível, auditoria de cada conversa e custo fixo em reais."],
   autosky:["Nuvem para ERP · Autosky",'Seu ERP fora do servidor local, <span class="hl-box">sem parar</span><br>a <span class="lime-txt">operação.</span>',"Migração e operação do ERP na nuvem, gerenciadas pela Skyone. Sem hardware, sem lentidão, com custo previsível."],
-  dados:["Integração de sistemas · Skyone",'Seus sistemas <span class="hl-box">conversando</span><br>e o dado
+  dados:["Integração de sistemas · Skyone",'Seus sistemas <span class="hl-box">conversando</span><br>e o dado <span class="lime-txt">chegando na hora.</span>',"ERP, CRM e e-commerce integrados, com dados organizados para decisão e prontos para IA."],
+  seg:["Cibersegurança & SOC · Skyone",'Ataque detectado e contido <span class="hl-box">antes</span><br>de virar <span class="lime-txt">crise.</span>',"Monitoramento 24x7, detecção e resposta a incidentes, inclusive fora do horário comercial."]
+};
+function showProd(k,scroll){
+  if(!document.getElementById('p-'+k)) return;
+  document.querySelectorAll('.ppanel').forEach(p=>p.classList.toggle('on',p.dataset.p===k));
+  document.querySelectorAll('.ptab').forEach(t=>{const on=t.dataset.p===k;t.classList.toggle('on',on);t.setAttribute('aria-selected',on)});
+  document.querySelectorAll('.nav a[data-p],.mnav a').forEach(a=>a.classList.toggle('on',a.dataset.p===k));
+  const ac=document.querySelector('.mnav a.on'); if(ac) ac.scrollIntoView({block:'nearest',inline:'center'});
+  if(scroll) document.getElementById('solucoes').scrollIntoView({behavior:'smooth'});
+}
+document.querySelectorAll('.ptab').forEach(t=>t.addEventListener('click',()=>{showProd(t.dataset.p,false);history.replaceState(null,'','#p-'+t.dataset.p)}));
+document.querySelectorAll('a[href^="#p-"]').forEach(a=>a.addEventListener('click',e=>{
+  e.preventDefault(); const k=a.getAttribute('href').slice(3);
+  showProd(k,true); history.replaceState(null,'','#p-'+k);
+}));
+(function initProd(){
+  const q=new URLSearchParams(location.search).get('p');
+  const h=location.hash.startsWith('#p-')?location.hash.slice(3):'';
+  const k=(q&&HERO[q])?q:(HERO[h]?h:'astro');
+  showProd(k,!!h&&!q);
+  if(q&&HERO[q]){ /* campanha: hero falando da dor do anúncio */
+    const [kk,t,sb]=HERO[q];
+    document.getElementById('hKick').textContent=kk;
+    document.getElementById('hTitle').innerHTML=t;
+    document.getElementById('hSub').textContent=sb;
+    const btn=document.querySelector('#p-'+q+' .btn');
+    if(btn){answers.fProduto=btn.dataset.prod;answers.fDor=btn.dataset.dor;
+      document.getElementById('qDorTxt').textContent=btn.dataset.dor;document.getElementById('qDor').classList.add('on');}
+  }
+})();
+/* barra de progresso do deslize + dica de swipe (1x) */
+(function(){const m=document.querySelector('.mnav'),bar=document.querySelector('.mnav-bar i');if(!m||!bar)return;
+  const upd=()=>{const max=m.scrollWidth-m.clientWidth;const vis=m.clientWidth/m.scrollWidth;bar.style.width=(Math.max(vis,.2)*100)+'%';
+    bar.style.transform='translateX('+(max>0?(m.scrollLeft/max)*((1/Math.max(vis,.2))-1)*100:0)+'%)';};
+  m.addEventListener('scroll',upd,{passive:true});addEventListener('resize',upd);upd();
+  if(m.scrollWidth>m.clientWidth+4){m.classList.add('hint');m.addEventListener('animationend',()=>m.classList.remove('hint'),{once:true});}
+})();
+/* ===== Vídeos: fachada leve + player em modal (o visitante não sai da LP) =====
+   Em cada .video-thumb preencha:
+   data-yt="ID_DO_YOUTUBE" ou data-mp4="case.mp4"
+   data-poster="thumb.webp" (opcional; sem ele usa a thumb do YouTube)
+   data-preview="trecho-5s.mp4" (opcional; prévia muda em loop, mais leve que GIF) */
+(function(){
+  const modal=document.getElementById('vModal'),slot=document.getElementById('vSlot');
+  document.querySelectorAll('button.video-thumb').forEach(t=>{
+    const yt=t.dataset.yt,poster=t.dataset.poster||(yt?'https://i.ytimg.com/vi/'+yt+'/hqdefault.jpg':'');
+    if(poster) t.style.backgroundImage='url("'+poster+'")';
+    const pv=t.dataset.preview,v=t.querySelector('.vt-prev');
+    if(pv&&v){
+      const play=()=>{if(!v.src)v.src=pv;v.play().then(()=>t.classList.add('previewing')).catch(()=>{})};
+      const stop=()=>{v.pause();t.classList.remove('previewing')};
+      if(matchMedia('(hover:hover)').matches){t.addEventListener('mouseenter',play);t.addEventListener('mouseleave',stop);}
+      else{new IntersectionObserver(es=>es.forEach(e=>e.isIntersecting?play():stop()),{threshold:.6}).observe(t);}
+    }
+    t.addEventListener('click',()=>{
+      slot.innerHTML='';
+      if(t.dataset.yt){
+        const f=document.createElement('iframe');
+        f.src='https://www.youtube-nocookie.com/embed/'+t.dataset.yt+'?autoplay=1&rel=0&modestbranding=1&playsinline=1';
+        f.allow='autoplay; encrypted-media; picture-in-picture';f.allowFullscreen=true;f.title=t.dataset.title||'Vídeo';slot.appendChild(f);
+      }else if(t.dataset.mp4){
+        const vv=document.createElement('video');vv.src=t.dataset.mp4;vv.controls=true;vv.autoplay=true;vv.playsInline=true;slot.appendChild(vv);
+      }else{
+        slot.innerHTML='<div class="vempty">Vídeo do '+(t.dataset.title||'case')+' em breve.</div>';
+      }
+      modal.classList.add('on');document.body.style.overflow='hidden';
+    });
+  });
+  const close=()=>{modal.classList.remove('on');slot.innerHTML='';document.body.style.overflow=''};
+  document.getElementById('vClose').addEventListener('click',close);
+  modal.addEventListener('click',e=>{if(e.target===modal)close()});
+  addEventListener('keydown',e=>{if(e.key==='Escape'&&modal.classList.contains('on'))close()});
+  document.getElementById('vCta').addEventListener('click',e=>{close();focusQuiz(e)});
+})();
+function focusQuiz(e){
+  e.preventDefault();
+  const dor = e.currentTarget && e.currentTarget.dataset ? e.currentTarget.dataset.dor : '';
+  const prod = e.currentTarget && e.currentTarget.dataset ? e.currentTarget.dataset.prod : '';
+  if(prod) answers.fProduto = prod;
+  if(dor){
+    answers.fDor = dor;
+    document.getElementById('qDorTxt').textContent = dor;
+    document.getElementById('qDor').classList.add('on');
+    const q = document.getElementById('quiz');
+    setTimeout(()=>{ q.classList.remove('flash'); void q.offsetWidth; q.classList.add('flash'); }, 650);
+  }
+  document.getElementById('hero').scrollIntoView({behavior:'smooth'});
+  setTimeout(()=>{
+    const inp = getQ(current).querySelector('input');
+    if(inp) inp.focus();
+  }, 700);
+}
+
+/* ============ REVEAL ON SCROLL ============ */
+const io = new IntersectionObserver(entries=>{
+  entries.forEach(en=>{ if(en.isIntersecting){ en.target.classList.add('on'); io.unobserve(en.target); } });
+},{threshold:.12});
+document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+
+/* ============ CONTADORES ============ */
+const ioNum = new IntersectionObserver(entries=>{
+  entries.forEach(en=>{
+    if(!en.isIntersecting) return;
+    const el = en.target, target = +el.dataset.count, suffix = el.dataset.suffix || '';
+    const t0 = performance.now(), dur = 1600;
+    (function tick(t){
+      const p = Math.min((t-t0)/dur, 1);
+      const eased = 1 - Math.pow(1-p, 3);
+      el.textContent = Math.round(target*eased).toLocaleString('pt-BR') + suffix;
+      if(p<1) requestAnimationFrame(tick);
+    })(t0);
+    ioNum.unobserve(el);
+  });
+},{threshold:.4});
+document.querySelectorAll('[data-count]').forEach(el=>ioNum.observe(el));
+
+/* ============ TICKER: duplicar trilha p/ loop infinito ============ */
+const track = document.getElementById('tickerTrack');
+track.innerHTML += track.innerHTML;
+
+/* ============ FAQ ============ */
+document.querySelectorAll('.faq-item').forEach(item=>{
+  const q = item.querySelector('.faq-q'), a = item.querySelector('.faq-a');
+  q.addEventListener('click', ()=>{
+    const open = item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(i=>{ i.classList.remove('open'); i.querySelector('.faq-a').style.maxHeight = null; });
+    item.classList.toggle('open', !open);
+    a.style.maxHeight = open ? null : a.scrollHeight + 'px';
+  });
+});
+
+updateBar(); validate();
+</script>
+</body>
+</html>
