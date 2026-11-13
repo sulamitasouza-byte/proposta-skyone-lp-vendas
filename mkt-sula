@@ -1,0 +1,1190 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Vazamento de dados em IA, custo de tokens em dólar, ERP na nuvem, integração de sistemas e proteção contra ransomware: soluções Skyone para empresas. Demo em 30 segundos.">
+<meta name="theme-color" content="#01041A">
+<title>Skyone — Nuvem, dados, segurança e IA para sua empresa | Demo em 30s</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&family=Trispace:wdth,wght@112.5,400;112.5,500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,500,0,0&icon_names=auto_awesome,celebration,check_circle,cloud,dns,domain,favorite,gpp_maybe,hub,lock,manage_search,menu,monitoring,my_location,payments,public,rocket_launch,schedule,settings,shield,spa,star,toll,trending_down,trending_up,visibility_off,warning&display=block">
+<style>
+  :root{
+    /* Paleta oficial Skyone · Brandbook v1.0 */
+    --deep:#000A62; --digital:#0018EE; --light:#00B0FF; --lime-b:#DEFE52; --pink:#FF5EC4; --off:#FAFAFA;
+    --bg:#00041F; --bg2:#000318; --card:#050E45; --card2:#081458;
+    --line:rgba(250,250,250,.12);
+    --txt:#FAFAFA; --mut:#BDBDBD;
+    --lime:#DEFE52; --lime2:#C9EA2E;
+    --blue:#0018EE; --purple:#FF5EC4; --cyan:#00B0FF;
+    --grad:linear-gradient(90deg,#0018EE,#00B0FF);
+    --grad-t:linear-gradient(90deg,#00B0FF,#DEFE52);
+    --r:18px;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{background:var(--bg);color:var(--txt);font-family:'Inter',system-ui,-apple-system,'Segoe UI',Arial,sans-serif;overflow-x:hidden}
+  ::selection{background:var(--lime);color:#000A62}
+
+  /* ===== HEADER (sem abas) ===== */
+  header{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;
+    padding:14px 28px;background:rgba(0,7,78,.75);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+  .logo{display:flex;align-items:center;gap:10px;font-weight:800;font-size:20px;letter-spacing:-.5px}
+  .logo .mark{width:30px;height:20px;border-radius:6px;background:var(--grad);position:relative;overflow:hidden}
+  .logo .mark::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,rgba(0,7,78,.55))}
+  .logo small{font-size:10px;font-weight:600;color:var(--lime);border:1px solid rgba(222,254,82,.4);padding:2px 7px;border-radius:99px;letter-spacing:1px;text-transform:uppercase}
+  .btn{display:inline-flex;align-items:center;gap:8px;background:var(--lime);color:#000A62;font-weight:800;font-size:15px;
+    padding:13px 26px;border-radius:99px;border:none;cursor:pointer;text-decoration:none;
+    box-shadow:0 0 0 0 rgba(222,254,82,.5);transition:transform .2s,box-shadow .3s}
+  .btn:hover{transform:translateY(-2px) scale(1.02);box-shadow:0 8px 30px rgba(222,254,82,.35)}
+  .btn.ghost{background:transparent;color:var(--txt);border:1px solid var(--line)}
+  .btn.ghost:hover{border-color:var(--lime);color:var(--lime);box-shadow:none}
+  .hdr-note{font-size:12px;color:var(--mut);display:flex;align-items:center;gap:6px}
+  .hdr-note .dot{width:7px;height:7px;border-radius:50%;background:var(--lime);animation:pulse 1.6s infinite}
+  @keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
+  @media(max-width:760px){.hdr-note{display:none}}
+
+  section{padding:96px 24px;position:relative}
+  .wrap{max-width:1140px;margin:0 auto;position:relative;z-index:2}
+  .kicker{display:inline-flex;align-items:center;gap:8px;font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;
+    color:var(--lime);margin-bottom:18px}
+  .kicker::before{content:'';width:26px;height:2px;background:var(--lime)}
+  h1{font-size:clamp(30px,4.3vw,50px);line-height:1.06;letter-spacing:-2px;font-weight:800}
+  h2{font-size:clamp(28px,3.6vw,42px);line-height:1.12;letter-spacing:-1.4px;font-weight:800;margin-bottom:16px}
+  .sub{font-size:17px;color:var(--mut);line-height:1.65;max-width:640px}
+  .grad-txt{background:var(--grad-t);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .lime-txt{color:var(--lime)}
+
+  /* reveal on scroll */
+  .rv{opacity:0;transform:translateY(34px);transition:opacity .7s cubic-bezier(.2,.7,.3,1),transform .7s cubic-bezier(.2,.7,.3,1)}
+  .rv.on{opacity:1;transform:none}
+  .rv.d1{transition-delay:.1s}.rv.d2{transition-delay:.2s}.rv.d3{transition-delay:.3s}
+
+  /* ===== HERO ===== */
+  .hero{min-height:auto;display:flex;align-items:center;padding:100px 24px 64px;
+    background:radial-gradient(900px 500px at 15% 10%,rgba(0,24,238,.22),transparent 60%),
+               radial-gradient(800px 500px at 90% 90%,rgba(255,94,196,.18),transparent 60%),var(--bg)}
+  .hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:44px;align-items:center}
+  @media(max-width:920px){.hero-grid{grid-template-columns:1fr}}
+  .hero-badges{display:flex;gap:10px;flex-wrap:wrap;margin:20px 0 0}
+  .hb{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--mut);border:1px solid var(--line);
+    padding:8px 14px;border-radius:99px;background:rgba(255,255,255,.02)}
+  .hb b{color:var(--txt)}
+  .hb svg{flex:none}
+
+  /* ===== QUIZ CARD ===== */
+  .quiz-shell{position:relative}
+  .quiz-glow{position:absolute;inset:-2px;border-radius:24px;background:var(--grad);opacity:.5;filter:blur(18px);z-index:0;animation:glowShift 6s ease-in-out infinite alternate}
+  @keyframes glowShift{from{opacity:.35}to{opacity:.7}}
+  .quiz{position:relative;z-index:1;background:var(--card);border:1px solid var(--line);border-radius:22px;padding:22px 24px 18px;
+    box-shadow:0 30px 80px rgba(0,0,0,.5)}
+  .quiz-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px}
+  .quiz-step{font-size:12px;font-weight:700;color:var(--mut);letter-spacing:1px;text-transform:uppercase}
+  .quiz-time{display:flex;align-items:center;gap:6px;font-size:12px;font-weight:700;color:var(--lime)}
+  .pbar{height:6px;background:rgba(255,255,255,.07);border-radius:99px;overflow:hidden;margin-bottom:16px}
+  .pbar i{display:block;height:100%;width:0;border-radius:99px;background:var(--grad);transition:width .5s cubic-bezier(.2,.7,.3,1)}
+  .q-viewport{position:relative;min-height:205px}
+  .q{position:absolute;inset:0;opacity:0;transform:translateX(46px);pointer-events:none;transition:opacity .45s,transform .45s cubic-bezier(.2,.7,.3,1)}
+  .q.active{opacity:1;transform:none;pointer-events:auto}
+  .q.leaving{opacity:0;transform:translateX(-46px)}
+  .q h3{font-size:20px;letter-spacing:-.6px;margin-bottom:6px}
+  .q .why{font-size:13px;color:var(--mut);margin-bottom:14px;line-height:1.5}
+  .q input[type=text],.q input[type=email],.q input[type=tel]{width:100%;background:rgba(255,255,255,.04);border:1.5px solid var(--line);border-radius:14px;
+    padding:13px 16px;color:var(--txt);font-size:16px;font-family:inherit;outline:none;transition:border-color .25s,box-shadow .2s}
+  .q input:focus{border-color:var(--lime);box-shadow:0 0 0 4px rgba(222,254,82,.12)}
+  .chips{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  @media(max-width:520px){.chips{grid-template-columns:1fr}}
+  .chip{background:rgba(255,255,255,.04);border:1.5px solid var(--line);border-radius:14px;padding:12px 14px;cursor:pointer;
+    font-size:14.5px;font-weight:600;color:var(--txt);text-align:left;font-family:inherit;display:flex;align-items:center;gap:10px;
+    transition:border-color .2s,background .2s,transform .15s}
+  .chip:hover{border-color:var(--cyan);transform:translateY(-2px)}
+  .chip.sel{border-color:var(--lime);background:rgba(222,254,82,.1)}
+  .chip .ic{font-size:18px}
+  .quiz-nav{display:flex;align-items:center;justify-content:space-between;margin-top:16px}
+  .q-back{background:none;border:none;color:var(--mut);font-size:13.5px;font-weight:600;cursor:pointer;font-family:inherit;display:flex;align-items:center;gap:6px}
+  .q-back:hover{color:var(--txt)}
+  .q-next{background:var(--lime);color:#000A62;border:none;font-weight:800;font-size:14.5px;padding:13px 24px;border-radius:99px;
+    cursor:pointer;font-family:inherit;display:flex;align-items:center;gap:8px;transition:transform .2s,opacity .2s}
+  .q-next:hover{transform:scale(1.04)}
+  .q-next:disabled{opacity:.35;cursor:not-allowed;transform:none}
+  .quiz-foot{margin-top:12px;padding-top:10px;border-top:1px solid var(--line);display:flex;align-items:center;gap:8px;font-size:11.5px;color:var(--mut)}
+  /* sucesso */
+  .q-done{text-align:center;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:205px}
+  .done-ring{width:84px;height:84px;border-radius:50%;background:rgba(222,254,82,.12);border:2px solid var(--lime);
+    display:flex;align-items:center;justify-content:center;margin-bottom:18px;animation:pop .5s cubic-bezier(.2,1.4,.4,1)}
+  @keyframes pop{from{transform:scale(.4);opacity:0}to{transform:scale(1);opacity:1}}
+  .q-done h3{font-size:24px;margin-bottom:8px}
+  .q-done p{font-size:14.5px;color:var(--mut);max-width:340px;line-height:1.6}
+  .confetti{position:absolute;width:8px;height:14px;top:-10px;border-radius:2px;animation:fall linear forwards;pointer-events:none}
+  @keyframes fall{to{transform:translateY(340px) rotate(720deg);opacity:0}}
+
+  /* ticker de marcas */
+  .ticker-sec{padding:34px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--bg2)}
+  .ticker-label{text-align:center;font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--mut);margin-bottom:20px;font-weight:700}
+  .ticker{overflow:hidden;mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent)}
+  .ticker-track{display:flex;gap:14px;width:max-content;animation:scrollX 34s linear infinite}
+  .ticker:hover .ticker-track{animation-play-state:paused}
+  @keyframes scrollX{to{transform:translateX(-50%)}}
+  .brand{flex:none;display:flex;align-items:center;gap:9px;border:1px solid var(--line);background:var(--card);
+    padding:12px 22px;border-radius:14px;font-weight:800;font-size:15px;letter-spacing:-.3px;color:var(--txt);white-space:nowrap}
+  .brand .bmark{width:10px;height:10px;border-radius:3px;background:var(--grad)}
+  .brand span.tag{font-size:10px;font-weight:600;color:var(--mut);letter-spacing:.5px}
+
+  /* dores */
+  .pains{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:44px}
+  @media(max-width:920px){.pains{grid-template-columns:1fr}}
+  .pain{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:28px;position:relative;overflow:hidden;transition:transform .25s,border-color .25s}
+  .pain:hover{transform:translateY(-6px);border-color:rgba(255,80,80,.4)}
+  .pain .emo{font-size:30px;margin-bottom:16px}
+  .pain h4{font-size:18px;margin-bottom:10px;letter-spacing:-.4px}
+  .pain p{font-size:14px;color:var(--mut);line-height:1.6}
+  .pain .stat{margin-top:16px;font-size:13px;font-weight:800;color:#FF8080}
+
+  /* bloco ASTRO */
+  .astro-sec{background:radial-gradient(1000px 600px at 80% 0%,rgba(0,176,255,.12),transparent 60%),
+             radial-gradient(900px 600px at 0% 100%,rgba(255,94,196,.14),transparent 60%),var(--bg2);
+    border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .astro-head{display:flex;align-items:flex-end;justify-content:space-between;gap:30px;flex-wrap:wrap;margin-bottom:46px}
+  .astro-logo{display:flex;align-items:center;gap:14px;margin-bottom:14px}
+  .astro-orb{width:52px;height:52px;border-radius:50%;background:var(--grad);position:relative;animation:orbFloat 4s ease-in-out infinite}
+  .astro-orb::after{content:'';position:absolute;inset:8px;border-radius:50%;background:var(--bg2)}
+  .astro-orb::before{content:'';position:absolute;inset:-6px;border-radius:50%;border:1.5px dashed rgba(222,254,82,.5);animation:spin 12s linear infinite}
+  @keyframes orbFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+  @keyframes spin{to{transform:rotate(360deg)}}
+  .astro-logo b{font-size:30px;letter-spacing:-1px}
+  .pioneer{display:inline-flex;align-items:center;gap:8px;background:rgba(222,254,82,.1);border:1px solid rgba(222,254,82,.35);
+    color:var(--lime);font-size:12.5px;font-weight:800;padding:8px 16px;border-radius:99px;letter-spacing:.5px}
+  .feats{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+  @media(max-width:920px){.feats{grid-template-columns:1fr 1fr}}
+  @media(max-width:620px){.feats{grid-template-columns:1fr}}
+  .feat{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:26px;transition:transform .25s,border-color .25s}
+  .feat:hover{transform:translateY(-6px);border-color:rgba(0,176,255,.45)}
+  .feat .fic{width:46px;height:46px;border-radius:13px;background:rgba(0,24,238,.14);display:flex;align-items:center;justify-content:center;margin-bottom:16px}
+  .feat h4{font-size:16.5px;margin-bottom:8px;letter-spacing:-.3px}
+  .feat p{font-size:13.5px;color:var(--mut);line-height:1.6}
+  .feat .uniq{margin-top:14px;font-size:12px;font-weight:800;color:var(--cyan);display:flex;align-items:center;gap:6px}
+
+  /* comparativo */
+  .cmp{margin-top:44px;background:var(--card);border:1px solid var(--line);border-radius:22px;overflow:hidden}
+  .cmp-row{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;border-bottom:1px solid var(--line)}
+  .cmp-row:last-child{border-bottom:none}
+  .cmp-row.head{background:rgba(255,255,255,.03)}
+  .cmp-cell{padding:16px 20px;font-size:14px;display:flex;align-items:center;gap:8px}
+  .cmp-row.head .cmp-cell{font-weight:800;font-size:13px;letter-spacing:.3px}
+  .cmp-cell.feature{color:var(--txt);font-weight:600}
+  .cmp-cell.mut{color:var(--mut)}
+  .cmp-cell.hero-col{background:rgba(222,254,82,.06)}
+  .cmp-row.head .cmp-cell.hero-col{color:var(--lime)}
+  .yes{color:var(--lime);font-weight:800}
+  .no{color:#FF8080;font-weight:700}
+  .partial{color:#FFC46B;font-weight:700}
+  @media(max-width:820px){.cmp-row{grid-template-columns:1.2fr 1fr 1fr}.cmp-cell:nth-child(4){display:none}}
+  .cmp-note{font-size:12px;color:var(--mut);margin-top:12px}
+
+  /* números */
+  .nums{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:44px}
+  @media(max-width:820px){.nums{grid-template-columns:1fr 1fr}}
+  .num{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:28px 22px;text-align:center}
+  .num b{display:block;font-size:clamp(28px,3.4vw,40px);letter-spacing:-1.5px;color:var(--lime);font-weight:800}
+  .num span{font-size:13px;color:var(--mut);font-weight:600}
+
+  /* depoimentos */
+  .quotes{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:44px}
+  @media(max-width:920px){.quotes{grid-template-columns:1fr}}
+  .quote{background:var(--card);border:1px solid var(--line);border-radius:var(--r);overflow:hidden;display:flex;flex-direction:column;transition:transform .25s,border-color .25s}
+  .quote:hover{transform:translateY(-6px);border-color:rgba(255,94,196,.5)}
+  .video-thumb{position:relative;aspect-ratio:16/9;background:linear-gradient(135deg,#141E48,#000A62);display:flex;align-items:center;justify-content:center;cursor:pointer}
+  .video-thumb::before{content:'';position:absolute;inset:0;background:radial-gradient(300px 160px at 50% 50%,rgba(0,24,238,.25),transparent)}
+  .play{width:60px;height:60px;border-radius:50%;background:var(--lime);display:flex;align-items:center;justify-content:center;position:relative;z-index:2;transition:transform .2s;box-shadow:0 0 0 8px rgba(222,254,82,.15)}
+  .video-thumb:hover .play{transform:scale(1.1)}
+  .video-thumb .dur{position:absolute;bottom:10px;right:12px;background:rgba(0,0,0,.65);font-size:11px;font-weight:700;padding:3px 8px;border-radius:6px;z-index:2}
+  .video-thumb .vtag{position:absolute;top:10px;left:12px;background:rgba(222,254,82,.9);color:#000A62;font-size:10px;font-weight:800;padding:4px 9px;border-radius:6px;letter-spacing:.5px;z-index:2}
+  .quote-body{padding:22px;display:flex;flex-direction:column;gap:14px;flex:1}
+  .quote-body p{font-size:14.5px;line-height:1.6;color:var(--txt)}
+  .quote-body p::before{content:'“';color:var(--lime);font-size:20px;font-weight:800}
+  .quote-body p::after{content:'”';color:var(--lime);font-size:20px;font-weight:800}
+  .person{display:flex;align-items:center;gap:12px;margin-top:auto}
+  .avatar{width:44px;height:44px;border-radius:50%;background:var(--grad);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:15px;color:#fff;flex:none}
+  .person b{font-size:14px;display:block}
+  .person span{font-size:12px;color:var(--mut)}
+  .case-metric{font-size:12.5px;font-weight:800;color:var(--cyan);border-top:1px solid var(--line);padding-top:12px}
+
+  /* mídia + selos */
+  .media-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;margin-top:44px;align-items:start}
+  @media(max-width:820px){.media-grid{grid-template-columns:1fr}}
+  .media-list{display:flex;flex-direction:column;gap:12px}
+  .media-item{display:flex;align-items:center;gap:14px;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px 18px;transition:border-color .2s,transform .2s}
+  .media-item:hover{border-color:var(--cyan);transform:translateX(6px)}
+  .media-item .mmark{width:40px;height:44px;border-radius:10px;background:rgba(0,176,255,.1);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:11px;color:var(--cyan);flex:none;text-align:center;line-height:1.1}
+  .media-item b{font-size:14px;display:block}
+  .media-item span{font-size:12px;color:var(--mut)}
+  .seals{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  .seal{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px;text-align:center}
+  .seal .sic{font-size:26px;margin-bottom:10px}
+  .seal b{font-size:14px;display:block;margin-bottom:4px}
+  .seal span{font-size:12px;color:var(--mut)}
+
+  /* FAQ */
+  .faq{margin-top:44px;display:flex;flex-direction:column;gap:12px;max-width:820px}
+  .faq-item{background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden}
+  .faq-q{width:100%;background:none;border:none;color:var(--txt);font-family:inherit;font-size:15.5px;font-weight:700;
+    padding:20px 22px;text-align:left;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:14px}
+  .faq-q .arr{transition:transform .3s;color:var(--lime);font-weight:800;flex:none}
+  .faq-item.open .faq-q .arr{transform:rotate(45deg)}
+  .faq-a{max-height:0;overflow:hidden;transition:max-height .4s cubic-bezier(.2,.7,.3,1)}
+  .faq-a p{padding:0 22px 20px;font-size:14px;color:var(--mut);line-height:1.65}
+
+  /* CTA final */
+  .final{background:radial-gradient(800px 400px at 50% 0%,rgba(222,254,82,.12),transparent 60%),var(--bg)}
+  .final-card{background:var(--card);border:1px solid rgba(222,254,82,.3);border-radius:26px;padding:64px 40px;text-align:center;position:relative;overflow:hidden}
+  .final-card::before{content:'';position:absolute;inset:-2px;background:radial-gradient(500px 200px at 50% 0%,rgba(222,254,82,.14),transparent)}
+  .final-card > *{position:relative;z-index:2}
+  .final-card .btn{font-size:17px;padding:17px 38px;margin-top:28px}
+  .final-micro{margin-top:18px;font-size:13px;color:var(--mut);display:flex;justify-content:center;gap:20px;flex-wrap:wrap}
+  .final-micro span{display:flex;align-items:center;gap:6px}
+
+  footer{padding:34px 24px;border-top:1px solid var(--line);text-align:center;font-size:12px;color:var(--mut);line-height:1.8}
+
+  /* CTA flutuante mobile */
+  .float-cta{position:fixed;bottom:16px;left:16px;right:16px;z-index:99;display:none}
+  .float-cta .btn{width:100%;justify-content:center}
+  @media(max-width:760px){.float-cta{display:block}}
+
+  /* ===== espiada do próximo scroll ===== */
+  .peek{position:absolute;left:50%;bottom:14px;transform:translateX(-50%);z-index:3;display:flex;flex-direction:column;align-items:center;gap:4px;
+    font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--mut);text-decoration:none;animation:peekUp 2.4s ease-in-out infinite}
+  .peek svg{opacity:.8}
+  @keyframes peekUp{0%,100%{transform:translate(-50%,0);opacity:.55}50%{transform:translate(-50%,-6px);opacity:1}}
+  .ticker-sec{animation:riseIn 1s .6s cubic-bezier(.2,.7,.3,1) both}
+  @keyframes riseIn{from{transform:translateY(28px);opacity:.4}to{transform:none;opacity:1}}
+  @media(max-width:920px){.peek{display:none}}
+
+  /* ===== CTAs por dor (leads qualificados) ===== */
+  .dor-cta{margin-top:48px;text-align:center}
+  .dor-cta .lbl{font-size:13px;font-weight:700;color:var(--mut);letter-spacing:1px;text-transform:uppercase;margin-bottom:16px}
+  .dor-grid{display:flex;flex-wrap:wrap;justify-content:center;gap:12px}
+  .dor-btn{display:inline-flex;align-items:center;gap:10px;background:rgba(255,255,255,.03);border:1.5px solid var(--line);color:var(--txt);
+    font-family:inherit;font-weight:700;font-size:14.5px;padding:14px 20px;border-radius:14px;cursor:pointer;text-decoration:none;text-align:left;
+    transition:border-color .2s,background .2s,transform .2s,box-shadow .2s;max-width:360px}
+  .dor-btn .ic{font-size:20px;flex:none}
+  .dor-btn .arw{color:var(--lime);font-weight:800;margin-left:auto;padding-left:6px}
+  .dor-btn:hover{border-color:var(--lime);background:rgba(222,254,82,.08);transform:translateY(-2px);box-shadow:0 8px 26px rgba(222,254,82,.15)}
+  @media(max-width:600px){.dor-btn{max-width:100%;width:100%}}
+  .quiz-dor{display:none;align-items:center;gap:8px;font-size:12px;color:var(--mut);background:rgba(222,254,82,.07);border:1px solid rgba(222,254,82,.25);
+    padding:7px 12px;border-radius:10px;margin-bottom:12px}
+  .quiz-dor.on{display:flex}
+  .quiz-dor b{color:var(--lime)}
+  .quiz.flash{animation:qflash 1s ease}
+  @keyframes qflash{0%{box-shadow:0 0 0 0 rgba(222,254,82,.6)}100%{box-shadow:0 0 0 18px rgba(222,254,82,0)}}
+
+  .astro-icon{width:52px;height:52px;object-fit:contain}
+  /* ===== NAV ===== */
+  .nav{display:flex;gap:4px;align-items:center}
+  .nav a,.nav button{color:var(--mut);text-decoration:none;font-size:14px;font-weight:600;padding:8px 12px;border-radius:10px;background:none;border:none;font-family:inherit;cursor:pointer}
+  .nav a:hover,.nav button:hover{color:var(--txt);background:rgba(255,255,255,.05)}
+  .nav .dd{position:relative}
+  .mega{position:absolute;top:calc(100% + 10px);left:50%;transform:translateX(-50%) translateY(6px);width:min(620px,92vw);background:var(--card);border:1px solid var(--line);
+    border-radius:18px;padding:14px;display:grid;grid-template-columns:1fr 1fr;gap:6px;opacity:0;pointer-events:none;transition:.2s;box-shadow:0 30px 80px rgba(0,0,0,.5)}
+  .dd:hover .mega,.dd:focus-within .mega{opacity:1;pointer-events:auto;transform:translateX(-50%)}
+  .mega a{display:flex;gap:12px;align-items:flex-start;padding:12px;border-radius:12px;color:var(--txt)}
+  .mega a small{display:block;color:var(--mut);font-weight:500;font-size:12.5px;margin-top:2px;line-height:1.4}
+  .mega .mi{font-size:22px}
+  .burger{display:none;background:none;border:1px solid var(--line);color:var(--txt);border-radius:10px;padding:8px 11px;font-size:18px;cursor:pointer}
+  @media(max-width:980px){.nav{display:none;position:absolute;top:100%;left:0;right:0;flex-direction:column;align-items:stretch;background:var(--card);
+      border-bottom:1px solid var(--line);padding:12px}.nav.open{display:flex}.burger{display:block}
+    .mega{position:static;transform:none;opacity:1;pointer-events:auto;width:100%;grid-template-columns:1fr;box-shadow:none;border:none;padding:0}
+    .hdr-note{display:none}}
+  /* ===== ROTEADOR "O que você veio buscar?" ===== */
+  #rota{padding:64px 24px}
+  .rota-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px;margin-top:28px}
+  .rota{position:relative;background:var(--card);border:1.5px solid var(--line);border-radius:18px;padding:22px;cursor:pointer;text-align:left;
+    font-family:inherit;color:var(--txt);transition:.2s;display:flex;flex-direction:column;gap:8px}
+  .rota:hover{border-color:var(--lime);transform:translateY(-3px);box-shadow:0 12px 34px rgba(222,254,82,.12)}
+  .rota .tag{position:absolute;top:-10px;right:14px;background:var(--lime);color:#000A62;font-size:10.5px;font-weight:800;padding:3px 9px;border-radius:99px;letter-spacing:.5px;text-transform:uppercase}
+  .rota .ic{font-size:26px}
+  .rota h4{font-size:16.5px;line-height:1.3}
+  .rota p{font-size:13px;color:var(--mut);line-height:1.5}
+  .rota .go{margin-top:auto;font-size:13px;font-weight:800;color:var(--lime)}
+  .rota-alt{text-align:center;margin-top:20px;font-size:13.5px;color:var(--mut)}
+  .rota-alt a{color:var(--cyan)}
+  /* ===== PRODUTOS ===== */
+  .prods{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px;margin-top:30px}
+  .prod{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:26px;display:flex;flex-direction:column;gap:10px;scroll-margin-top:90px}
+  .prod.hl{border-color:rgba(222,254,82,.4)}
+  .prod .pi{width:46px;height:46px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:24px;background:rgba(255,255,255,.05)}
+  .prod h3{font-size:20px;letter-spacing:-.4px}
+  .prod .pdor{font-size:13.5px;color:var(--lime);font-weight:700}
+  .prod p{font-size:14px;color:var(--mut);line-height:1.6}
+  .prod ul{list-style:none;font-size:13.5px;color:var(--mut);display:flex;flex-direction:column;gap:6px}
+  .prod li::before{content:'✓ ';color:var(--lime);font-weight:800}
+  .prod .btn{margin-top:auto;justify-content:center;font-size:14px;padding:12px 18px}
+
+  .dor-btn{position:relative;overflow:hidden}
+  .dor-btn .reveal{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;gap:4px;background:var(--lime);color:#000A62;
+    font-size:14px;transform:translateY(101%);transition:transform .25s cubic-bezier(.2,.7,.3,1)}
+  .dor-btn:hover .reveal,.dor-btn:focus-visible .reveal{transform:none}
+  .rota .go-hov{display:none}
+  .rota:hover .go-def,.rota:focus-visible .go-def{display:none}
+  .rota:hover .go-hov,.rota:focus-visible .go-hov{display:inline}
+  @media(hover:none){.dor-btn .reveal{position:static;transform:none;background:none;color:var(--lime);font-size:12px;padding-left:6px}
+    .dor-btn{flex-wrap:wrap}.rota .go-def{display:none}.rota .go-hov{display:inline}}
+  .prod:target{border-color:var(--lime);box-shadow:0 0 0 4px rgba(222,254,82,.15)}
+  /* performance */
+  #dores,#astro,#numeros,#provas,#midia,#faq-sec,#final,footer{content-visibility:auto;contain-intrinsic-size:auto 900px}
+  @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}.rv{opacity:1;transform:none}}
+  @media(max-width:760px){header{backdrop-filter:none;background:rgba(0,7,78,.96)}.quiz-glow{animation:none;filter:blur(10px)}}
+  .logo{color:var(--txt);text-decoration:none}.logo-img{height:28px;width:auto;display:block}
+
+  /* ===== VITRINE DE SOLUÇÕES ===== */
+  #solucoes{scroll-margin-top:70px}
+  .ptabs{display:flex;gap:8px;overflow-x:auto;padding-bottom:6px;margin-bottom:22px;scrollbar-width:none}
+  .ptab{flex:none;background:rgba(255,255,255,.03);border:1.5px solid var(--line);color:var(--mut);font-family:inherit;font-weight:700;font-size:14.5px;
+    padding:12px 18px;border-radius:99px;cursor:pointer;transition:.2s}
+  .ptab:hover{color:var(--txt);border-color:var(--cyan)}
+  .ptab.on{background:var(--lime);border-color:var(--lime);color:#000A62}
+  .ppanel{display:none;grid-template-columns:1.15fr .85fr;gap:40px;background:var(--card);border:1px solid rgba(222,254,82,.3);border-radius:24px;padding:40px}
+  .ppanel.on{display:grid;animation:pIn .4s cubic-bezier(.2,.7,.3,1)}
+  @keyframes pIn{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+  @media(max-width:860px){.ppanel{grid-template-columns:1fr;padding:26px;gap:22px}}
+  .pp-q{font-size:19px;font-weight:800;color:var(--lime);margin:4px 0 14px;line-height:1.35}
+  .pp-kw{margin-top:16px;font-size:12.5px;color:var(--mut);opacity:.8}
+  .pp-r{display:flex;flex-direction:column;gap:16px;justify-content:center}
+  .pp-r ul{list-style:none;display:flex;flex-direction:column;gap:12px;font-size:15px}
+  .pp-r li{padding-left:28px;position:relative;line-height:1.45}
+  .pp-r li::before{content:'✓';position:absolute;left:0;top:0;color:#000A62;background:var(--lime);width:19px;height:19px;border-radius:50%;font-size:11px;font-weight:900;display:flex;align-items:center;justify-content:center}
+  .pp-r .btn{justify-content:center}
+  .pp-micro{font-size:12px;color:var(--mut);text-align:center}
+  .nav a.on{color:var(--lime)}
+
+  /* hover na navegação: revela o produto */
+  .nav a.nv{position:relative}
+  .nv-kw{border-bottom:1px dashed rgba(154,163,199,.35);padding-bottom:1px}
+  .nv-pv{position:absolute;top:calc(100% + 12px);left:50%;transform:translate(-50%,6px);width:250px;background:var(--card);border:1px solid rgba(222,254,82,.35);
+    border-radius:14px;padding:14px;display:grid;grid-template-columns:auto 1fr;gap:4px 10px;opacity:0;pointer-events:none;transition:.18s;
+    box-shadow:0 20px 50px rgba(0,0,0,.5);text-align:left;z-index:5}
+  .nv-pv::before{content:'';position:absolute;top:-12px;left:0;right:0;height:12px}
+  .nv-ic{font-size:24px;grid-row:span 2}
+  .nv-pv b{display:block;color:var(--txt);font-size:14.5px}
+  .nv-pv small{display:block;color:var(--mut);font-size:12.5px;font-weight:500;line-height:1.4;margin-top:2px}
+  .nv-pv em{grid-column:2;font-style:normal;color:var(--lime);font-size:12.5px;font-weight:800;margin-top:6px}
+  .nav a.nv:hover .nv-pv,.nav a.nv:focus-visible .nv-pv{opacity:1;transform:translate(-50%,0)}
+  .nav a.nv:hover .nv-kw{color:var(--lime);border-color:var(--lime)}
+  @media(max-width:980px){.nv-pv{position:static;transform:none;opacity:1;width:auto;background:none;border:none;box-shadow:none;padding:4px 0 0;display:block}
+    .nv-ic,.nv-pv small,.nv-pv em{display:none}.nv-pv b{font-size:12px;color:var(--lime)}.nv-kw{border:none}}
+
+  /* ===== navegação por interesse no MOBILE (sempre visível) ===== */
+  .mnav{display:none}
+  @media(max-width:980px){
+    header{flex-wrap:wrap;row-gap:10px;padding:10px 16px}
+    header .btn{font-size:13px;padding:10px 14px}
+    .burger{display:none}
+    .mnav{display:flex;order:5;width:calc(100% + 32px);margin:0 -16px;padding:0 16px 2px;gap:8px;overflow-x:auto;scrollbar-width:none;
+      -webkit-overflow-scrolling:touch;scroll-snap-type:x proximity;
+      mask-image:linear-gradient(90deg,#000 88%,transparent)}
+    .mnav::-webkit-scrollbar{display:none}
+    .mnav a{flex:none;scroll-snap-align:start;display:flex;flex-direction:column;gap:1px;text-decoration:none;
+      background:rgba(255,255,255,.04);border:1.5px solid var(--line);border-radius:12px;padding:7px 12px;min-height:44px;justify-content:center}
+    .mnav a span{color:var(--txt);font-size:13px;font-weight:700;white-space:nowrap}
+    .mnav a small{color:var(--lime);font-size:10.5px;font-weight:700;letter-spacing:.3px}
+    .mnav a.on{background:var(--lime);border-color:var(--lime)}
+    .mnav a.on span,.mnav a.on small{color:#000A62}
+    .hero{padding-top:150px}
+    #solucoes{scroll-margin-top:120px}
+  }
+
+  /* ===== Brandbook: tipografia ===== */
+  h1,h2,h3,h4{font-family:'Inter',system-ui,sans-serif;font-weight:700}
+  h1{font-weight:900}
+  .kicker,.quiz-step,.quiz-time,.ticker-label,.dor-cta .lbl,.pp-kw,.rota .tag,.ptab,.mnav a small,.nv-pv em,.peek,.pioneer,.cmp-row.head .cmp-cell{
+    font-family:'Trispace','Inter',monospace;font-stretch:112.5%;font-weight:500;letter-spacing:.02em}
+  .kicker{text-transform:none;font-size:13px}
+  .kicker::before{width:22px;height:22px;border-radius:50%;background:none;border:2px solid var(--lime);border-left-color:transparent;border-bottom-color:transparent;transform:rotate(45deg)}
+  /* ===== Brandbook: ícones Material ===== */
+  .mi{font-family:'Material Symbols Rounded';font-weight:normal;font-style:normal;font-size:1.15em;line-height:1;display:inline-block;
+    vertical-align:-.18em;letter-spacing:normal;text-transform:none;white-space:nowrap;direction:ltr;-webkit-font-smoothing:antialiased;
+    width:1em;overflow:hidden;color:var(--lime)}
+  .ptab.on .mi,.mnav a.on .mi,.rota .tag .mi{color:inherit}
+  .rota .ic .mi,.dor-btn .ic .mi,.prod .pi .mi,.pain .emo .mi,.nv-ic .mi,.mega .mi .mi{font-size:28px}
+  .chip .ic .mi{font-size:22px}
+  /* ===== Brandbook: gradientes (1 = pink, 2 = lime) e grafismos ===== */
+  .hero{background:radial-gradient(520px 380px at 4% 62%,rgba(255,94,196,.28),transparent 62%),
+    radial-gradient(1000px 650px at 92% 10%,rgba(0,24,238,.55),transparent 62%),
+    radial-gradient(700px 500px at 60% 120%,rgba(0,176,255,.25),transparent 60%),var(--bg);overflow:hidden}
+  .final{background:radial-gradient(520px 320px at 50% 0%,rgba(222,254,82,.22),transparent 62%),
+    radial-gradient(900px 500px at 50% 30%,rgba(0,24,238,.45),transparent 65%),var(--bg)}
+  .final-card{background:rgba(0,4,31,.7);border-color:rgba(222,254,82,.35)}
+  .grafismo{position:absolute;pointer-events:none;z-index:1;opacity:.55}
+  .grafismo.g1{right:-180px;top:40px;width:620px;height:620px}
+  .grafismo.g2{left:-120px;bottom:-160px;width:360px;height:360px}
+  @media(max-width:920px){.grafismo.g1{width:420px;height:420px;right:-220px;top:110px;opacity:.35}.grafismo.g2{display:none}}
+  .q-next,.btn{border-radius:99px}
+  .chip.sel,.dor-btn:hover,.rota:hover{background:rgba(222,254,82,.08)}
+  /* ícones só aparecem depois que a fonte carrega (sem texto “fantasma”) */
+  .mi{visibility:hidden}.icons-ok .mi{visibility:visible}
+  @media(max-width:760px){.hero-badges{display:none}.hero .sub{font-size:15px;margin-top:12px!important}
+    .hero{padding-bottom:40px}.hero-grid{gap:22px}.kicker{margin-bottom:10px}}
+  /* tipografia: Inter respirando + Trispace nos tópicos */
+  h1{font-weight:700!important;letter-spacing:-.025em;line-height:1.08}
+  h2{font-weight:700;letter-spacing:-.02em;line-height:1.15}
+  h3,h4{font-weight:600;letter-spacing:-.01em}
+  .sub,p{font-weight:400}
+  .hb,.quiz-foot,.final-micro,.pp-micro,.cmp-note{font-weight:300}
+  .btn,.q-next{font-weight:700;letter-spacing:0}
+  .hero-badges .hb b,.nums .num span,.uniq,.stat,.pp-q{font-family:'Trispace','Inter',monospace;font-stretch:112.5%;font-weight:500}
+  .pp-q{font-size:17px;letter-spacing:0}
+  .quiz-glow{filter:none!important;background:none!important;box-shadow:0 0 50px rgba(0,176,255,.35),0 0 0 1px rgba(0,176,255,.25)}
+
+  /* ===== KV atual (site + Instagram da Skyone) ===== */
+  :root{--bg:#01041A;--bg2:#020725;--card:#06103F;--card2:#0A1752;--glow:0 0 24px rgba(0,176,255,.45)}
+  .hero{background:
+    radial-gradient(60% 70% at 50% -10%,rgba(0,90,255,.55),transparent 70%),
+    radial-gradient(420px 300px at 0% 100%,rgba(255,94,196,.22),transparent 70%),
+    radial-gradient(700px 500px at 100% 60%,rgba(0,24,238,.45),transparent 65%),var(--bg)!important}
+  #solucoes,#provas,#faq-sec,.ticker-sec{background:radial-gradient(80% 60% at 50% 0%,rgba(0,24,238,.18),transparent 70%),var(--bg2)!important}
+  h1,h2{color:#FFFFFF}
+  .hl-box{background:#00B0FF;color:#000A62;padding:0 .2em;border-radius:.18em;-webkit-box-decoration-break:clone;box-decoration-break:clone;
+    box-shadow:0 0 30px rgba(0,176,255,.45)}
+  .grad-txt{background:none!important;-webkit-background-clip:border-box;background-clip:border-box;color:var(--lime)!important;
+    text-shadow:0 0 28px rgba(222,254,82,.25)}
+  .kicker{text-transform:uppercase;letter-spacing:.22em;font-size:11.5px;color:#FAFAFA}
+  .kicker::before{width:18px;height:4px;border:none;border-radius:99px;background:#00B0FF;transform:none;box-shadow:0 0 10px #00B0FF}
+  .kicker::after{content:'→';color:var(--lime);letter-spacing:0}
+  .dor-cta .lbl,.ticker-label,.peek{letter-spacing:.22em}
+  .rota .ic,.dor-btn .ic,.pain .emo,.fic,.prod .pi,.nv-ic{display:inline-flex;align-items:center;justify-content:center;width:48px;height:48px;flex:none;
+    border-radius:14px;background:linear-gradient(160deg,rgba(0,176,255,.22),rgba(0,24,238,.12));border:1.5px solid rgba(0,176,255,.65);
+    box-shadow:var(--glow),inset 0 0 14px rgba(0,176,255,.25)}
+  .dor-btn .ic{width:38px;height:38px;border-radius:11px}
+  .rota .ic .mi,.dor-btn .ic .mi,.pain .emo .mi,.prod .pi .mi,.nv-ic .mi{color:#BFEAFF;font-size:26px}
+  .pain .stat .mi{color:#FFD45E}
+  .rota:hover,.dor-btn:hover,.feat:hover,.pain:hover{border-color:#00B0FF;box-shadow:var(--glow)}
+  .ppanel{border-color:rgba(0,176,255,.4);box-shadow:0 0 60px rgba(0,24,238,.25)}
+  .quiz{background:linear-gradient(180deg,rgba(10,23,82,.9),rgba(6,16,63,.95))}
+  .pbar i{background:linear-gradient(90deg,#00B0FF,#DEFE52);box-shadow:0 0 12px rgba(0,176,255,.6)}
+
+  /* ===== AJUSTES FINOS: menos ruído ===== */
+  .grafismo.g2{display:none}
+  .grafismo.g1{opacity:.18}
+  .grafismo.g1 path[stroke="#0018EE"]{display:none}
+  .hero{background:radial-gradient(60% 70% at 50% -10%,rgba(0,90,255,.45),transparent 70%),
+    radial-gradient(700px 500px at 100% 70%,rgba(0,24,238,.3),transparent 65%),var(--bg)!important}
+  .hl-box{box-shadow:none}
+  .grad-txt{text-shadow:none}
+  .kicker::before{box-shadow:none;width:14px;height:3px}
+  .kicker::after{content:none}
+  .nv-kw{border-bottom:none}
+  .nav a.nv:hover .nv-kw{color:var(--lime)}
+  .hero-badges{gap:18px;margin-top:18px}
+  .hb{border:none;background:none;padding:0;font-size:13px}
+  .hb svg{width:13px;height:13px}
+  .hb b{font-family:'Inter',sans-serif!important;font-stretch:100%;font-weight:600}
+  .peek{font-size:0;gap:0}
+  .peek svg{width:20px;height:20px}
+  :root{--glow:0 0 14px rgba(0,176,255,.25)}
+  .rota .ic,.dor-btn .ic,.pain .emo,.fic,.prod .pi,.nv-ic{box-shadow:none;border-color:rgba(0,176,255,.4);background:rgba(0,176,255,.08)}
+  .quiz-glow{box-shadow:0 0 0 1px rgba(250,250,250,.08),0 30px 60px rgba(0,0,0,.45)}
+  .quiz{border-color:rgba(250,250,250,.1)}
+  .pbar i{box-shadow:none}
+  .ppanel{box-shadow:none;border-color:rgba(250,250,250,.12)}
+  .rota .tag{font-size:10px}
+  .ticker-sec{background:var(--bg2)!important}
+  .brand{background:none!important;border-color:transparent!important}
+  .brand .bmark{display:none}
+  .brand .tag{display:none}
+  section{padding:88px 24px}
+  .dor-cta{margin-top:40px}
+  .dor-btn{background:transparent;border-color:rgba(250,250,250,.12);font-weight:600}
+  .final-micro{gap:16px}
+  .rota-grid{grid-template-columns:repeat(5,1fr);gap:12px}
+  @media(max-width:1100px){.rota-grid{grid-template-columns:repeat(3,1fr)}}
+  @media(max-width:640px){.rota-grid{grid-template-columns:1fr 1fr}}
+  .rota{padding:18px}.rota h4{font-size:15px}.rota p{font-size:12.5px}
+  .hb{gap:5px;white-space:nowrap}.hero-badges{flex-wrap:nowrap;gap:16px}
+  @media(max-width:1180px){.hero-badges{flex-wrap:wrap}}
+  .q-viewport{min-height:170px}.q-done{min-height:170px}
+
+  /* ===== HIERARQUIA POR CONTRASTE (UX) ===== */
+  h1,h2{color:rgba(250,250,250,.58)!important}
+  h1 .hl-box,h1 .grad-txt,h1 .lime-txt,h2 .grad-txt,h2 .lime-txt,h2 .hl-box{
+    background:none!important;box-shadow:none!important;padding:0!important;color:#FFFFFF!important;-webkit-text-fill-color:#FFFFFF}
+  .pp-q{color:#FFFFFF;font-style:italic;font-family:'Inter',sans-serif!important;font-stretch:100%;font-weight:500}
+  .kicker{color:rgba(250,250,250,.7)}
+  .dor-btn .ic .mi,.rota .ic .mi,.pain .emo .mi,.prod .pi .mi{color:#BFEAFF}
+
+  /* ===== mobile: barra de deslize + dica de swipe ===== */
+  .mnav-bar{display:none}
+  @media(max-width:980px){
+    .mnav{mask-image:linear-gradient(90deg,#000 82%,transparent);-webkit-mask-image:linear-gradient(90deg,#000 82%,transparent);padding-right:40px}
+    .mnav a{padding:6px 11px;min-height:42px}
+    .mnav a span{font-size:12.5px}
+    .mnav a small{font-size:10px}
+    .mnav .mi{display:none}
+    .mnav-bar{display:block;order:6;width:100%;height:3px;border-radius:99px;background:rgba(250,250,250,.1);overflow:hidden;margin-top:-4px}
+    .mnav-bar i{display:block;height:100%;width:40%;border-radius:99px;background:var(--lime);transform:translateX(0);transition:transform .15s linear}
+    .mnav.hint{animation:swipeHint 1.4s .9s ease-in-out 1}
+    @keyframes swipeHint{0%,100%{transform:translateX(0)}40%{transform:translateX(-56px)}70%{transform:translateX(-56px)}}
+    .hero{padding-top:162px}
+  }
+
+  /* ===== vídeos dos cases: KV + trava de experiência ===== */
+  button.video-thumb{all:unset;box-sizing:border-box;display:block;width:100%;cursor:pointer;position:relative;aspect-ratio:16/9;overflow:hidden;
+    border-radius:14px 14px 0 0;background:var(--card2) center/cover no-repeat}
+  button.video-thumb:focus-visible{outline:2px solid var(--lime);outline-offset:2px}
+  /* Filtro KV sobre a thumb para contraste limpo do badge e play */
+  button.video-thumb::after{content:'';position:absolute;inset:0;
+    background:linear-gradient(180deg,rgba(1,4,26,.25) 0%,rgba(0,10,98,.72) 100%);
+    z-index:1;transition:opacity .3s ease}
+  button.video-thumb:hover::after{opacity:.42}
+  .vt-prev{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .3s;z-index:0}
+  .video-thumb.previewing .vt-prev{opacity:1}
+  .video-thumb .play{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);z-index:2;width:56px;height:56px;border-radius:50%;
+    background:var(--lime);display:flex;align-items:center;justify-content:center;transition:transform .2s}
+  .video-thumb:hover .play{transform:translate(-50%,-50%) scale(1.08)}
+  .vmodal{position:fixed;inset:0;z-index:300;display:none;align-items:center;justify-content:center;padding:70px 20px;background:rgba(1,4,26,.92);backdrop-filter:blur(8px)}
+  .vmodal.on{display:flex}
+  .vbox{position:relative;width:min(960px,100%);aspect-ratio:16/9;background:#000;border-radius:16px;box-shadow:0 30px 80px rgba(0,0,0,.6);overflow:hidden}
+  /* Trava visual no topo do player para impedir clique no título/logo do YouTube */
+  .vbox::after{content:'';position:absolute;top:0;left:0;right:0;height:62px;z-index:5;background:transparent}
+  .vbox iframe,.vbox video{position:absolute;inset:0;width:100%;height:100%;border:0;border-radius:16px}
+  .vclose{position:absolute;top:calc(50% - min(270px, 28.125vw) - 48px);right:max(20px, calc(50% - 480px));z-index:10;background:rgba(1,4,26,.85);border:1px solid rgba(250,250,250,.3);color:#fff;border-radius:99px;padding:8px 16px;font:600 13px Inter,sans-serif;cursor:pointer;transition:border-color .2s,color .2s}
+  .vclose:hover{border-color:var(--lime);color:var(--lime)}
+  .vcta{position:absolute;bottom:calc(50% - min(270px, 28.125vw) - 64px);left:50%;transform:translateX(-50%);z-index:10;white-space:nowrap}
+  @media(max-width:640px){
+    .vclose{top:16px;right:16px}
+    .vcta{bottom:20px}
+  }
+  .vempty{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;text-align:center;padding:24px;color:var(--mut);font-size:14px;z-index:6}
+</style>
+</head>
+<body>
+
+<!-- ============ HEADER ============ -->
+<header>
+  <a class="logo" href="#hero" aria-label="Skyone — início">
+    <svg xmlns="http://www.w3.org/2000/svg" height="24" style="width:auto" role="img" aria-label="Skyone" class="logo-img" viewBox="0 0 111 22" fill="none"><g clip-path="url(#clip_hdr)"><path d="M96.1016 17.1238C104.278 17.1238 110.901 10.5084 110.901 2.34131H105.368C105.368 7.43215 101.226 11.5702 96.1288 11.5702V17.0966L96.1016 17.1238Z" fill="#0517ED"></path><path d="M85.0078 17.1238C85.0078 8.95668 91.6308 2.34131 99.8073 2.34131V7.86773C94.7106 7.86773 90.5678 12.0057 90.5678 17.0966H85.0351L85.0078 17.1238Z" fill="#4FAFF8"></path><path d="M0.4089 12.8767C2.09872 13.884 4.08834 14.2924 5.26031 14.2924C6.32326 14.2924 6.95012 14.0201 6.95012 13.3395C6.95012 12.3867 5.56011 12.4956 3.73402 12.0056C1.41734 11.4339 0.0273285 10.4538 0.0273285 8.43926C0.0273285 5.82578 2.34401 4.35569 5.39658 4.35569C6.86836 4.35569 8.69445 4.65516 10.1117 5.33575V8.6026C8.47641 7.67699 6.56855 7.26864 5.47835 7.26864C4.46991 7.26864 3.8703 7.5681 3.8703 8.1398C3.8703 9.03818 5.2058 8.95651 7.03189 9.41931C9.37583 9.99101 10.8203 10.8894 10.8203 13.0128C10.8203 15.708 8.44915 17.1781 5.28756 17.1781C3.81579 17.1781 1.90793 16.8786 0.436155 16.1436V12.8223L0.4089 12.8767Z" fill="#FFFFFF"></path><path d="M12.5938 0H16.4095V9.855H16.464L20.7703 4.62804H25.1038L20.3887 10.1272L25.4582 16.9332H20.9611L16.4912 10.6445H16.4367V16.9332H12.621V0H12.5938Z" fill="#FFFFFF"></path><path d="M27.2831 21.7786H28.8367C30.8263 21.7786 32.6251 20.5535 33.3337 18.7295V18.6479L38.8938 4.65485H34.9963L32.1618 12.577L29.3273 4.65485H25.457L30.2539 16.9055L29.9814 17.5861C29.7361 18.1851 29.1365 18.5662 28.4823 18.5662H27.2559V21.8058L27.2831 21.7786Z" fill="#FFFFFF"></path><path d="M45.4894 4.35547C49.4141 4.35547 52.3577 7.15952 52.3577 10.7803C52.3577 14.401 49.4414 17.2051 45.4894 17.2051C41.5374 17.2051 38.6211 14.401 38.6211 10.7803C38.6211 7.15952 41.5374 4.35547 45.4894 4.35547ZM45.4894 13.9382C47.2065 13.9382 48.5419 12.5498 48.5419 10.7803C48.5419 9.01073 47.2065 7.62232 45.4894 7.62232C43.7723 7.62232 42.4368 9.01073 42.4368 10.7803C42.4368 12.5498 43.7723 13.9382 45.4894 13.9382Z" fill="#FFFFFF"></path><path d="M53.8553 4.62771H57.6165V5.7711H57.671C58.6249 5.00884 59.9332 4.35547 61.4867 4.35547C62.795 4.35547 63.9397 4.81827 64.7028 5.60776C65.466 6.39725 65.7658 7.4862 65.7658 9.25574V16.9328H61.9501V9.88189C61.9501 8.95628 61.8138 8.49348 61.514 8.16679C61.1869 7.78566 60.7508 7.64954 60.2057 7.64954C59.2245 7.64954 58.2979 8.13957 57.6165 8.68405V16.9601H53.8008V4.62771H53.8553Z" fill="#FFFFFF"></path><path d="M70.9169 11.7876C71.353 13.4754 72.743 14.2649 74.4873 14.2649C75.8773 14.2649 77.3764 13.8021 78.6574 12.9037V16.0889C77.4581 16.8512 75.6048 17.2051 73.9695 17.2051C69.9085 17.2051 66.9922 14.6733 66.9922 10.8347C66.9922 6.99617 70.0448 4.35547 73.4516 4.35547C76.477 4.35547 79.3387 6.3428 79.3387 10.4808C79.3387 10.9164 79.3387 11.4609 79.257 11.7876H70.8897H70.9169ZM75.8501 9.39186C75.6321 8.0579 74.6509 7.26841 73.4244 7.26841C72.1979 7.26841 71.2167 8.00345 70.8897 9.39186H75.8501Z" fill="#FFFFFF"></path></g><defs><clipPath id="clip_hdr"><rect width="110.901" height="21.779" fill="white"></rect></clipPath></defs></svg>
+  </a>
+  <nav class="nav" id="nav">
+    <a href="#p-astro" data-p="astro" class="nv"><span class="nv-kw">Vazamento de dados em IA</span><span class="nv-pv" aria-hidden="true"><span class="nv-ic"><span class="mi">auto_awesome</span></span><span><b>Skyone Astro</b><small>IA corporativa segura, com custo fixo em R$</small></span><em>Ver solução →</em></span></a>
+    <a href="#p-autosky" data-p="autosky" class="nv"><span class="nv-kw">ERP na nuvem</span><span class="nv-pv" aria-hidden="true"><span class="nv-ic"><span class="mi">cloud</span></span><span><b>Skyone Autosky®</b><small>Seu ERP fora do servidor local, sem parar</small></span><em>Ver solução →</em></span></a>
+    <a href="#p-dados" data-p="dados" class="nv"><span class="nv-kw">Integrar sistemas</span><span class="nv-pv" aria-hidden="true"><span class="nv-ic"><span class="mi">hub</span></span><span><b>Integração & Dados</b><small>ERP, CRM e e-commerce conversando</small></span><em>Ver solução →</em></span></a>
+    <a href="#p-seg" data-p="seg" class="nv"><span class="nv-kw">Proteção contra ransomware</span><span class="nv-pv" aria-hidden="true"><span class="nv-ic"><span class="mi">shield</span></span><span><b>Cibersegurança & SOC</b><small>Monitoramento e resposta 24x7</small></span><em>Ver solução →</em></span></a>
+    <a href="#provas">Cases</a>
+  </nav>
+  <button class="burger" id="burger" aria-label="Abrir menu"><span class="mi">menu</span></button>
+  <div class="mnav" aria-label="O que você precisa resolver">
+    <a href="#p-astro" data-p="astro"><span>Dados vazando em IA</span><small>Skyone Astro</small></a>
+    <a href="#p-autosky" data-p="autosky"><span>ERP na nuvem</span><small>Skyone Autosky®</small></a>
+    <a href="#p-dados" data-p="dados"><span>Integrar sistemas</span><small>Integração &amp; Dados</small></a>
+    <a href="#p-seg" data-p="seg"><span>Ransomware</span><small>Cibersegurança</small></a>
+  </div>
+  <div class="mnav-bar" aria-hidden="true"><i></i></div>
+  <a class="btn" href="#hero" onclick="focusQuiz(event)">Começar — leva 30s
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+  </a>
+</header>
+
+<!-- ============ HERO + QUIZ ============ -->
+<section class="hero" id="hero">
+  <svg class="grafismo g1" viewBox="0 0 620 620" aria-hidden="true" fill="none">
+    <circle cx="310" cy="310" r="300" stroke="#00B0FF" stroke-opacity=".35" stroke-width="1.5"/>
+    <circle cx="310" cy="310" r="210" stroke="#FAFAFA" stroke-opacity=".12" stroke-width="1.5"/>
+    <path d="M310 10a300 300 0 0 1 300 300" stroke="#DEFE52" stroke-width="10" stroke-linecap="round"/>
+    <path d="M100 310a210 210 0 0 0 210 210" stroke="#0018EE" stroke-width="22" stroke-linecap="round"/>
+    <line x1="40" y1="580" x2="580" y2="40" stroke="#FAFAFA" stroke-opacity=".08"/>
+  </svg>
+  <svg class="grafismo g2" viewBox="0 0 360 360" aria-hidden="true" fill="none">
+    <path d="M20 180a160 160 0 0 1 320 0" stroke="#FF5EC4" stroke-opacity=".7" stroke-width="2"/>
+    <path d="M60 180a120 120 0 0 1 240 0" stroke="#00B0FF" stroke-opacity=".5" stroke-width="18"/>
+  </svg>
+  <div class="wrap hero-grid">
+    <div>
+      <span class="kicker rv on" id="hKick">Skyone · +25 mil empresas · 35+ países</span>
+      <h1 class="rv on d1" id="hTitle"><span class="hl-box">Nuvem, dados, segurança e IA</span><br>em uma só plataforma, sob o seu controle</h1>
+      <p class="sub rv on d2" id="hSub" style="margin-top:20px">Seu ERP na nuvem, seus sistemas integrados, sua operação protegida 24x7 e IA corporativa com custo fixo em reais. Tudo com um parceiro só, um contrato só e um time que responde em até 1 dia útil.</p>
+      <div class="hero-badges rv on d3">
+        <div class="hb"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#DEFE52" stroke-width="2.5"><path d="M12 2l8 4v6c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V6z"/></svg><b>LGPD</b>&nbsp;por desenho</div>
+        <div class="hb"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#00B0FF" stroke-width="2.5"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>Resposta em&nbsp;<b>até 1 dia útil</b></div>
+        <div class="hb"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#FF5EC4" stroke-width="2.5"><path d="M20 7L9 18l-5-5"/></svg>Sem cartão,&nbsp;<b>sem compromisso</b></div>
+      </div>
+    </div>
+
+    <!-- QUIZ -->
+    <div class="quiz-shell rv on d2">
+      <div class="quiz-glow"></div>
+      <div class="quiz" id="quiz">
+        <div class="quiz-top">
+          <span class="quiz-step" id="qStep">Pergunta 1 de 5</span>
+          <span class="quiz-time"><span class="mi">schedule</span> Só leva 30 segundos</span>
+        </div>
+        <div class="pbar"><i id="qBar"></i></div>
+        <div class="quiz-dor" id="qDor"><span class="mi">my_location</span> Seu foco: <b id="qDorTxt"></b></div>
+
+        <div class="q-viewport" id="qViewport">
+          <!-- Q1 · NOME -->
+          <div class="q active" data-q="1">
+            <h3>Primeiro, como podemos te chamar?</h3>
+            <p class="why">Seu nome completo — queremos personalizar sua demonstração, não te cadastrar em um funil.</p>
+            <input type="text" id="fNome" placeholder="Seu nome completo" autocomplete="name">
+          </div>
+          <!-- Q2 · E-MAIL -->
+          <div class="q" data-q="2">
+            <h3>Ótimo, <span id="echoNome">você</span>! Qual seu e-mail corporativo?</h3>
+            <p class="why">É para ele que enviamos o acesso ao ambiente de teste. Nada de spam — prometido.</p>
+            <input type="email" id="fEmail" placeholder="voce@suaempresa.com.br" autocomplete="email">
+          </div>
+          <!-- Q3 · TELEFONE -->
+          <div class="q" data-q="3">
+            <h3>E um telefone para agilizar o contato?</h3>
+            <p class="why">WhatsApp, de preferência — assim o especialista te acha sem depender de caixa de entrada.</p>
+            <input type="tel" id="fTel" placeholder="(11) 99999-9999" autocomplete="tel" inputmode="numeric" maxlength="15">
+          </div>
+          <!-- Q4 · EMPRESA -->
+          <div class="q" data-q="4">
+            <h3>Qual empresa você representa?</h3>
+            <p class="why">Assim já chegamos na conversa conhecendo o seu contexto e o seu segmento.</p>
+            <input type="text" id="fEmpresa" placeholder="Nome da empresa" autocomplete="organization">
+          </div>
+          <!-- Q5 · FATURAMENTO -->
+          <div class="q" data-q="5">
+            <h3>Última! Qual a faixa de faturamento anual?</h3>
+            <p class="why">Toque em uma opção — isso dimensiona a proposta certa para o seu porte. Sem resposta errada aqui.</p>
+            <div class="chips" data-field="fFaturamento">
+              <button type="button" class="chip" data-val="Menos de R$ 50MM"><span class="ic"><span class="mi">spa</span></span>Menos de R$ 50MM</button>
+              <button type="button" class="chip" data-val="R$ 50MM a R$ 100MM"><span class="ic"><span class="mi">rocket_launch</span></span>R$ 50MM a R$ 100MM</button>
+              <button type="button" class="chip" data-val="R$ 100MM a R$ 500MM"><span class="ic"><span class="mi">domain</span></span>R$ 100MM a R$ 500MM</button>
+              <button type="button" class="chip" data-val="Acima de R$ 500MM"><span class="ic"><span class="mi">public</span></span>Acima de R$ 500MM</button>
+            </div>
+          </div>
+          <!-- SUCESSO -->
+          <div class="q" data-q="done">
+            <div class="q-done">
+              <div class="done-ring">
+                <svg width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="#DEFE52" stroke-width="3"><path d="M20 7L9 18l-5-5"/></svg>
+              </div>
+              <h3>Pronto, <span id="echoNome2">você</span>! <span class="mi">celebration</span></h3>
+              <p>Seu pedido de demonstração foi registrado. Um especialista Skyone fala com você <b style="color:var(--lime)">em até 1 dia útil</b> — já com um ambiente montado para o seu cenário.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="quiz-nav" id="qNav">
+          <button class="q-back" id="qBack" style="visibility:hidden">← Voltar</button>
+          <button class="q-next" id="qNext" disabled>Continuar →</button>
+        </div>
+        <div class="quiz-foot">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#BDBDBD" stroke-width="2"><path d="M12 2l8 4v6c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V6z"/></svg>
+          Seus dados são tratados conforme a LGPD e a política de privacidade da Skyone. Você pode desistir quando quiser.
+        </div>
+      </div>
+    </div>
+  </div>
+  <a href="#dores" class="peek">Role e veja por que 25 mil empresas confiam
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></a>
+</section>
+
+<!-- ============ TICKER DE MARCAS ============ -->
+<div class="ticker-sec">
+  <p class="ticker-label">Mais de 25.000 empresas confiam na Skyone — em 35+ países</p>
+  <div class="ticker">
+    <div class="ticker-track" id="tickerTrack">
+      <div class="brand"><span class="bmark"></span>Panasonic <span class="tag">eletrônicos</span></div>
+      <div class="brand"><span class="bmark"></span>Catupiry <span class="tag">alimentos · 113 anos</span></div>
+      <div class="brand"><span class="bmark"></span>Lopes Supermercados <span class="tag">varejo</span></div>
+      <div class="brand"><span class="bmark"></span>Mart Minas <span class="tag">85 lojas</span></div>
+      <div class="brand"><span class="bmark"></span>Contmatic <span class="tag">software contábil</span></div>
+      <div class="brand"><span class="bmark"></span>Thompson <span class="tag">crédito + IA</span></div>
+      <div class="brand"><span class="bmark"></span>Suzantur <span class="tag">transporte</span></div>
+      <div class="brand"><span class="bmark"></span>Nordis <span class="tag">tecnologia</span></div>
+      <div class="brand"><span class="bmark"></span>Soter Engenharia <span class="tag">engenharia</span></div>
+      <div class="brand"><span class="bmark"></span>Magic Software <span class="tag">software</span></div>
+      <div class="brand"><span class="bmark"></span>Rede ANCORA <span class="tag">varejo</span></div>
+      <div class="brand"><span class="bmark"></span>Elis <span class="tag">indústria</span></div>
+      <div class="brand"><span class="bmark"></span>Arco-Mix <span class="tag">varejo</span></div>
+      <div class="brand"><span class="bmark"></span>Fortes Tecnologia <span class="tag">software · 30 anos</span></div>
+      <div class="brand"><span class="bmark"></span>POPULIS <span class="tag">serviços</span></div>
+      <div class="brand"><span class="bmark"></span>Grupo Inovage <span class="tag">integrações</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- ============ ROTEADOR: O QUE VOCÊ VEIO BUSCAR? ============ -->
+<section id="rota">
+  <div class="wrap">
+    <span class="kicker rv">Atalho para quem tem pressa</span>
+    <h2 class="rv d1">Qual <span class="lime-txt">problema</span> você precisa resolver?</h2>
+    <p class="sub rv d2">Clique no seu problema e veja a solução da Skyone feita para ele. De lá, um clique leva para a demo já direcionada.</p>
+    <div class="rota-grid rv">
+      <a class="rota" href="#p-astro"><span class="tag">Mais buscado</span><span class="ic"><span class="mi">lock</span></span><h4>Vazamento de dados em IA generativa</h4><p>Colaboradores colando dado sensível em ChatGPT e afins.</p><span class="go"><span class="go-def">Ver solução</span><span class="go-hov">Skyone Astro</span> →</span></a>
+      <a class="rota" href="#p-astro"><span class="ic"><span class="mi">payments</span></span><h4>Custo de IA em dólar fora de controle</h4><p>Tokens, assinaturas avulsas e fatura que só cresce.</p><span class="go"><span class="go-def">Ver solução</span><span class="go-hov">Skyone Astro</span> →</span></a>
+      <a class="rota" href="#p-autosky"><span class="ic"><span class="mi">dns</span></span><h4>Migrar ERP para a nuvem</h4><p>Servidor local caro, lento e sem redundância.</p><span class="go"><span class="go-def">Ver solução</span><span class="go-hov">Skyone Autosky®</span> →</span></a>
+      <a class="rota" href="#p-dados"><span class="ic"><span class="mi">hub</span></span><h4>Integração entre sistemas</h4><p>ERP, CRM e e-commerce que não conversam entre si.</p><span class="go"><span class="go-def">Ver solução</span><span class="go-hov">Integração & Dados</span> →</span></a>
+      <a class="rota" href="#p-seg"><span class="ic"><span class="mi">gpp_maybe</span></span><h4>Proteção contra ransomware</h4><p>Ninguém monitorando o ambiente fora do horário comercial.</p><span class="go"><span class="go-def">Ver solução</span><span class="go-hov">Cibersegurança & SOC</span> →</span></a>
+    </div>
+    <p class="rota-alt">Ainda não sabe por onde começar? <a href="#hero" onclick="focusQuiz(event)">Fale com um especialista</a> e a gente indica o caminho.</p>
+  </div>
+</section>
+
+<!-- ============ SOLUÇÕES (vitrine por produto) ============ -->
+<section id="solucoes" style="background:var(--bg2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+  <div class="wrap">
+    <span class="kicker">Soluções Skyone</span>
+    <h2 style="margin-bottom:22px">Escolha o que sua empresa precisa resolver</h2>
+    <div class="ptabs" role="tablist"><button type="button" class="ptab" role="tab" data-p="astro"><span class="mi">auto_awesome</span> Skyone Astro</button><button type="button" class="ptab" role="tab" data-p="autosky"><span class="mi">cloud</span> Skyone Autosky®</button><button type="button" class="ptab" role="tab" data-p="dados"><span class="mi">hub</span> Integração & Dados</button><button type="button" class="ptab" role="tab" data-p="seg"><span class="mi">shield</span> Cibersegurança & SOC</button></div>
+    <div class="ppanel" id="p-astro" role="tabpanel" data-p="astro">
+      <div class="pp-l">
+        <span class="kicker"><span class="mi">auto_awesome</span> Skyone Astro · IA corporativa</span>
+        <h2>IA para o time inteiro, <span class="grad-txt">sem vazar dado e sem fatura em dólar</span></h2>
+        <p class="pp-q">“Preciso de IA sem risco e sem fatura em dólar.”</p>
+        <p class="sub">+400 modelos de IA em uma plataforma governada: dados sensíveis bloqueados antes do modelo, cada conversa auditável e custo fixo por usuário em reais.</p>
+        <p class="pp-kw">Para quem busca: Vazamento de dados em IA · Custo de tokens · Shadow AI</p>
+      </div>
+      <div class="pp-r">
+        <ul><li>Bloqueio real de CPF, CNPJ, cartão e PIX nos prompts</li><li>Custo fixo em R$, com teto por usuário</li><li>Auditoria de cada conversa, exportável para compliance</li><li>Agentes prontos para jurídico, financeiro e vendas</li></ul>
+        <a class="btn" href="#hero" data-dor="Segurança: dado sensível em IA" data-prod="Astro" onclick="focusQuiz(event)">Quero IA segura na minha empresa →</a>
+        <span class="pp-micro">✓ Demo montada para o seu cenário · resposta em até 1 dia útil</span>
+      </div>
+    </div>
+    <div class="ppanel" id="p-autosky" role="tabpanel" data-p="autosky">
+      <div class="pp-l">
+        <span class="kicker"><span class="mi">cloud</span> Skyone Autosky® · Nuvem para ERP e sistemas</span>
+        <h2>Seu ERP fora do servidor local, <span class="grad-txt">sem parar a operação</span></h2>
+        <p class="pp-q">“Meu ERP ainda roda num servidor que ninguém quer tocar.”</p>
+        <p class="sub">Migração e operação do seu ERP e sistemas na nuvem, gerenciados pela Skyone, para acabar com servidor caro, lento e sem redundância.</p>
+        <p class="pp-kw">Para quem busca: Migrar ERP para a nuvem · Servidor local caro · Lentidão no sistema</p>
+      </div>
+      <div class="pp-r">
+        <ul><li>Migração planejada, sem parada da operação</li><li>Ambiente gerenciado pela Skyone</li><li>Custo previsível, sem compra de hardware</li><li>Acesso de qualquer lugar, com segurança</li></ul>
+        <a class="btn" href="#hero" data-dor="Nuvem: migrar ERP e sistemas" data-prod="Autosky" onclick="focusQuiz(event)">Quero meu ERP na nuvem →</a>
+        <span class="pp-micro">✓ Demo montada para o seu cenário · resposta em até 1 dia útil</span>
+      </div>
+    </div>
+    <div class="ppanel" id="p-dados" role="tabpanel" data-p="dados">
+      <div class="pp-l">
+        <span class="kicker"><span class="mi">hub</span> Integração & Dados · Integração de sistemas</span>
+        <h2>Seus sistemas conversando <span class="grad-txt">e o dado chegando na hora</span></h2>
+        <p class="pp-q">“Meus sistemas não conversam e o dado chega atrasado.”</p>
+        <p class="sub">Integração entre ERP, CRM, e-commerce e demais sistemas, com os dados organizados para BI e prontos para IA.</p>
+        <p class="pp-kw">Para quem busca: Integrar ERP e CRM · Dados em planilhas · Retrabalho manual</p>
+      </div>
+      <div class="pp-r">
+        <ul><li>Fim da planilha-ponte e do retrabalho manual</li><li>Conectores para os principais sistemas</li><li>Dados centralizados para decisão</li><li>Base pronta para projetos de IA</li></ul>
+        <a class="btn" href="#hero" data-dor="Integração e dados" data-prod="Integração & Dados" onclick="focusQuiz(event)">Quero integrar meus sistemas →</a>
+        <span class="pp-micro">✓ Demo montada para o seu cenário · resposta em até 1 dia útil</span>
+      </div>
+    </div>
+    <div class="ppanel" id="p-seg" role="tabpanel" data-p="seg">
+      <div class="pp-l">
+        <span class="kicker"><span class="mi">shield</span> Cibersegurança & SOC · Proteção 24x7</span>
+        <h2>Ataque detectado e contido <span class="grad-txt">antes de virar crise</span></h2>
+        <p class="pp-q">“Se formos atacados hoje, ninguém vai ver a tempo.”</p>
+        <p class="sub">Monitoramento contínuo, detecção e resposta a incidentes para o seu ambiente, inclusive fora do horário comercial.</p>
+        <p class="pp-kw">Para quem busca: Proteção contra ransomware · Monitoramento 24x7 · LGPD</p>
+      </div>
+      <div class="pp-r">
+        <ul><li>Monitoramento 24x7 do ambiente</li><li>Resposta a incidente com time especializado</li><li>Proteção contra ransomware</li><li>Apoio à conformidade com a LGPD</li></ul>
+        <a class="btn" href="#hero" data-dor="Cibersegurança e SOC" data-prod="Cibersegurança & SOC" onclick="focusQuiz(event)">Quero proteger minha empresa →</a>
+        <span class="pp-micro">✓ Demo montada para o seu cenário · resposta em até 1 dia útil</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ DORES ============ -->
+<section id="dores">
+  <div class="wrap">
+    <span class="kicker rv">A dor que ninguém admite no board</span>
+    <h2 class="rv d1">Sua empresa já usa IA<br>Você só <span class="lime-txt">não foi convidado</span> pra essa conversa</h2>
+    <p class="sub rv d2">É o Shadow AI: cada colaborador com uma conta pessoal, colando dado sensível em prompt, gerando custo em dólar que ninguém aprovou. Enquanto isso, três relógios correm contra você:</p>
+    <div class="pains">
+      <div class="pain rv">
+        <div class="emo"><span class="mi">visibility_off</span></div>
+        <h4>IA invisível, risco visível</h4>
+        <p>Prompts com CPF, contrato e código-fonte saem da empresa todos os dias — sem registro, sem permissão, sem volta. Quando o incidente acontece, quem explica ao board é você.</p>
+        <div class="stat"><span class="mi">warning</span> 1 prompt errado = risco real de multa LGPD</div>
+      </div>
+      <div class="pain rv d1">
+        <div class="emo"><span class="mi">payments</span></div>
+        <h4>Custo que ninguém aprovou</h4>
+        <p>Assinaturas avulsas em dólar, no cartão corporativo, sem teto e sem rateio. Você só descobre o tamanho do rombo quando a fatura fecha — e fecha em dólar.</p>
+        <div class="stat"><span class="mi">warning</span> Gasto de IA sem previsão = orçamento refém do câmbio</div>
+      </div>
+      <div class="pain rv d2">
+        <div class="emo"><span class="mi">manage_search</span></div>
+        <h4>Zero rastreabilidade</h4>
+        <p>Se amanhã perguntarem "quem pediu isso à IA?", a resposta hoje é silêncio. Sem auditoria, não há compliance, não há defesa, não há governança.</p>
+        <div class="stat"><span class="mi">warning</span> Sem log de uso = sem defesa em auditoria</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="wrap dor-cta rv">
+    <p class="lbl">Qual desses problemas você está buscando resolver?</p>
+    <div class="dor-grid">
+      <a class="dor-btn" href="#p-astro"><span class="ic"><span class="mi">lock</span></span><span class="kw">Como evitar vazamento de dados no ChatGPT</span><span class="reveal">Solução: <b>Skyone Astro</b> →</span></a>
+      <a class="dor-btn" href="#p-astro"><span class="ic"><span class="mi">payments</span></span><span class="kw">Como reduzir custo com tokens de IA</span><span class="reveal">Solução: <b>Skyone Astro</b> →</span></a>
+      <a class="dor-btn" href="#p-astro"><span class="ic"><span class="mi">manage_search</span></span><span class="kw">Como auditar o uso de IA na empresa</span><span class="reveal">Solução: <b>Skyone Astro</b> →</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ BLOCO ASTRO ============ -->
+<section class="astro-sec" id="astro">
+  <div class="wrap">
+    <div class="astro-head">
+      <div>
+        <div class="astro-logo rv"><img class="astro-icon" src="" alt="Skyone Astro" data-logo="astro" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'astro-orb'}))"><b>Skyone Astro</b></div>
+        <h2 class="rv d1">O primeiro hub de IA B2B do Brasil com <span class="grad-txt">governança de verdade</span></h2>
+        <p class="sub rv d2">Pioneiro em segurança porque nasce dentro de uma nuvem que já protege +25 mil empresas: a proteção começa <b style="color:var(--txt)">antes do modelo</b>, no bloqueio do dado sensível na origem — não num termo de uso que ninguém lê.</p>
+      </div>
+      <span class="pioneer rv d2"><span class="mi">shield</span> Pioneirismo em segurança de IA corporativa</span>
+    </div>
+
+    <div class="feats">
+      <div class="feat rv">
+        <div class="fic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#00B0FF" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h10"/></svg></div>
+        <h4>+400 modelos, um só contrato</h4>
+        <p>Catálogo com os principais LLMs do mundo, modo automático, controle de esforço e comparação lado a lado. O usuário escolhe a função — geral, código, visão, pesquisa, imagem — não o fornecedor.</p>
+        <div class="uniq"><span class="mi">star</span> Só o Astro tem: família de 7 funções com troca de motor sem retreinar ninguém</div>
+      </div>
+      <div class="feat rv d1">
+        <div class="fic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#DEFE52" stroke-width="2"><path d="M12 2l8 4v6c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V6z"/><path d="M9 12l2 2 4-4"/></svg></div>
+        <h4>Guardrails antes do modelo</h4>
+        <p>Detectores analisam prompt e arquivos antes de qualquer IA ver o conteúdo: CPF, CNPJ, cartão e chave PIX com validação real, chaves de API, senhas e termos vetados pela sua empresa. Cada regra notifica, bloqueia — ou os dois.</p>
+        <div class="uniq"><span class="mi">star</span> Só o Astro tem: validação real de dados brasileiros, não só padrão de texto</div>
+      </div>
+      <div class="feat rv d2">
+        <div class="fic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#00B0FF" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg></div>
+        <h4>Auditoria de cada conversa</h4>
+        <p>Toda pergunta fica registrada por usuário, equipe, modelo e período — buscável dentro do conteúdo e exportável em CSV para o seu BI. É a resposta pronta para qualquer comitê ou auditoria.</p>
+        <div class="uniq"><span class="mi">star</span> Só o Astro tem: registro auditável completo, com 2FA obrigatório no workspace</div>
+      </div>
+      <div class="feat rv">
+        <div class="fic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FF5EC4" stroke-width="2"><path d="M12 1v22M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg></div>
+        <h4>Custo fixo em reais</h4>
+        <p>Valor fixo por usuário com o uso dos modelos incluído. Sem créditos, sem cobrança variável, sem dólar. Teto de uso por pessoa, alerta de desvio e extrato exportável para rateio interno.</p>
+        <div class="uniq"><span class="mi">star</span> Só o Astro tem: previsibilidade total em R$, com contrato em território nacional</div>
+      </div>
+      <div class="feat rv d1">
+        <div class="fic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#00B0FF" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.5-6 8-6s8 2 8 6"/></svg></div>
+        <h4>Experts e Skills por área</h4>
+        <p>Agentes prontos para jurídico, financeiro e vendas, com Skills acionadas na conversa e um marketplace interno da empresa. A IA chega falando a língua de cada time.</p>
+        <div class="uniq"><span class="mi">star</span> Só o Astro tem: marketplace interno de agentes com governança nativa</div>
+      </div>
+      <div class="feat rv d2">
+        <div class="fic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#00B0FF" stroke-width="2"><path d="M10 13a5 5 0 007.5.5l3-3a5 5 0 00-7-7l-1.7 1.7M14 11a5 5 0 00-7.5-.5l-3 3a5 5 0 007 7l1.7-1.7"/></svg></div>
+        <h4>Conectores e servidores MCP</h4>
+        <p>Integração com Google Workspace, Notion, GitHub, Jira e HubSpot, além de servidores MCP próprios com autenticação por usuário. A IA trabalha sobre o seu contexto, com permissão.</p>
+        <div class="uniq"><span class="mi">star</span> Só o Astro tem: MCP corporativo com autenticação individual auditável</div>
+      </div>
+    </div>
+
+    <!-- COMPARATIVO -->
+    <div class="cmp rv">
+      <div class="cmp-row head">
+        <div class="cmp-cell">O que sua empresa precisa</div>
+        <div class="cmp-cell hero-col">Skyone Astro</div>
+        <div class="cmp-cell">Contas pessoais de IA</div>
+        <div class="cmp-cell">Hubs de IA genéricos</div>
+      </div>
+      <div class="cmp-row"><div class="cmp-cell feature">Bloqueio de CPF, CNPJ, cartão e PIX com validação real</div><div class="cmp-cell hero-col yes">✓ Nativo</div><div class="cmp-cell no">✗</div><div class="cmp-cell no">✗</div></div>
+      <div class="cmp-row"><div class="cmp-cell feature">Auditoria de conversas buscável e exportável (CSV/BI)</div><div class="cmp-cell hero-col yes">✓ Nativo</div><div class="cmp-cell no">✗</div><div class="cmp-cell partial">◐ Parcial</div></div>
+      <div class="cmp-row"><div class="cmp-cell feature">Custo fixo por usuário, em reais, com uso incluído</div><div class="cmp-cell hero-col yes">✓ Nativo</div><div class="cmp-cell no">✗ Dólar</div><div class="cmp-cell no">✗ Por token</div></div>
+      <div class="cmp-row"><div class="cmp-cell feature">Contrato e dados em território nacional (LGPD)</div><div class="cmp-cell hero-col yes">✓ Nativo</div><div class="cmp-cell no">✗</div><div class="cmp-cell no">✗</div></div>
+      <div class="cmp-row"><div class="cmp-cell feature">Troca de modelo sem retreinar o time (7 funções)</div><div class="cmp-cell hero-col yes">✓ Nativo</div><div class="cmp-cell no">✗</div><div class="cmp-cell no">✗</div></div>
+      <div class="cmp-row"><div class="cmp-cell feature">2FA obrigatório e perfis de acesso por função</div><div class="cmp-cell hero-col yes">✓ Nativo</div><div class="cmp-cell partial">◐ Parcial</div><div class="cmp-cell partial">◐ Parcial</div></div>
+      <div class="cmp-row"><div class="cmp-cell feature">Nuvem, dados, cibersegurança e SOC na mesma plataforma</div><div class="cmp-cell hero-col yes">✓ Nativo</div><div class="cmp-cell no">✗</div><div class="cmp-cell no">✗</div></div>
+      <div class="cmp-row"><div class="cmp-cell feature">White-label: a cara da sua empresa na interface</div><div class="cmp-cell hero-col yes">✓ Nativo</div><div class="cmp-cell no">✗</div><div class="cmp-cell no">✗</div></div>
+    </div>
+    <p class="cmp-note">Comparativo de categoria, baseado nas funcionalidades públicas de cada tipo de solução. Em telas menores, a 4ª coluna é ocultada para leitura confortável.</p>
+  </div>
+
+  <div class="wrap dor-cta rv">
+    <p class="lbl">Problemas que a gente resolve todo dia</p>
+    <div class="dor-grid">
+      <a class="dor-btn" href="#p-autosky"><span class="ic"><span class="mi">dns</span></span><span class="kw">Como migrar ERP para a nuvem sem parar a operação</span><span class="reveal">Solução: <b>Skyone Autosky®</b> →</span></a>
+      <a class="dor-btn" href="#p-dados"><span class="ic"><span class="mi">hub</span></span><span class="kw">Como integrar ERP, CRM e e-commerce</span><span class="reveal">Solução: <b>Integração & Dados</b> →</span></a>
+      <a class="dor-btn" href="#p-seg"><span class="ic"><span class="mi">gpp_maybe</span></span><span class="kw">Como proteger a empresa contra ransomware</span><span class="reveal">Solução: <b>Cibersegurança & SOC</b> →</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ NÚMEROS ============ -->
+<section id="numeros" style="padding-top:80px;padding-bottom:80px">
+  <div class="wrap">
+    <div class="nums">
+      <div class="num rv"><b data-count="25000" data-suffix="+">0</b><span>empresas clientes</span></div>
+      <div class="num rv d1"><b data-count="35" data-suffix="+">0</b><span>países de atuação</span></div>
+      <div class="num rv d2"><b data-count="400" data-suffix="+">0</b><span>modelos de IA no Astro</span></div>
+      <div class="num rv d3"><b data-count="12" data-suffix=" anos">0</b><span>de nuvem, dados e segurança</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ DEPOIMENTOS (VÍDEOS) ============ -->
+<section id="provas" style="background:var(--bg2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+  <div class="wrap">
+    <span class="kicker rv">Prova social, não promessa</span>
+    <h2 class="rv d1">Quem já dorme tranquilo <span class="grad-txt">conta com a própria voz</span></h2>
+    <p class="sub rv d2">Depoimentos reais, de cases públicos da Skyone. Toque no play e assista aqui mesmo, sem sair da página.</p>
+
+    <div class="quotes">
+      <!-- CASE 1: PANASONIC -->
+      <div class="quote rv">
+        <button type="button" class="video-thumb" 
+          data-yt="COLE_ID_PANASONIC_AQUI" 
+          data-mp4="" 
+          data-preview="" 
+          data-poster="" 
+          data-title="Case Panasonic" 
+          aria-label="Assistir ao case Panasonic aqui na página">
+          <video class="vt-prev" muted loop playsinline preload="none" aria-hidden="true"></video>
+          <span class="vtag">CASE EM VÍDEO</span>
+          <span class="play"><svg width="22" height="22" viewBox="0 0 24 24" fill="#000A62"><path d="M8 5v14l11-7z"/></svg></span>
+          <span class="dur">2:41</span>
+        </button>
+        <div class="quote-body">
+          <p>A Panasonic aposentou uma ferramenta legada de 10 anos com a nova plataforma de integração da Skyone.</p>
+          <div class="person">
+            <div class="avatar">PD</div>
+            <div><b>Paul Davis</b><span>Head de TI · Panasonic</span></div>
+          </div>
+          <div class="case-metric">▲ Legado de 10 anos substituído sem parar a operação</div>
+        </div>
+      </div>
+
+      <!-- CASE 2: LOPES SUPERMERCADOS -->
+      <div class="quote rv d1">
+        <button type="button" class="video-thumb" 
+          data-yt="COLE_ID_LOPES_AQUI" 
+          data-mp4="" 
+          data-preview="" 
+          data-poster="" 
+          data-title="Case Lopes Supermercados" 
+          aria-label="Assistir ao case Lopes Supermercados aqui na página">
+          <video class="vt-prev" muted loop playsinline preload="none" aria-hidden="true"></video>
+          <span class="vtag">CASE EM VÍDEO</span>
+          <span class="play"><svg width="22" height="22" viewBox="0 0 24 24" fill="#000A62"><path d="M8 5v14l11-7z"/></svg></span>
+          <span class="dur">3:05</span>
+        </button>
+        <div class="quote-body">
+          <p>A Skyone cuidou de tudo. Deu todo o suporte, fez essa migração, e hoje a gente só faz o gerenciamento dessa cloud. Para a Black Friday, estamos preparados.</p>
+          <div class="person">
+            <div class="avatar">TS</div>
+            <div><b>Thiago Santana</b><span>CIO · Lopes Supermercados</span></div>
+          </div>
+          <div class="case-metric">▲ Zero paralisação em campanha de alta demanda</div>
+        </div>
+      </div>
+
+      <!-- CASE 3: CATUPIRY / NORDIS -->
+      <div class="quote rv d2">
+        <button type="button" class="video-thumb" 
+          data-yt="COLE_ID_CATUPIRY_AQUI" 
+          data-mp4="" 
+          data-preview="" 
+          data-poster="" 
+          data-title="Case Catupiry" 
+          aria-label="Assistir ao case Catupiry aqui na página">
+          <video class="vt-prev" muted loop playsinline preload="none" aria-hidden="true"></video>
+          <span class="vtag">CASE EM VÍDEO</span>
+          <span class="play"><svg width="22" height="22" viewBox="0 0 24 24" fill="#000A62"><path d="M8 5v14l11-7z"/></svg></span>
+          <span class="dur">2:58</span>
+        </button>
+        <div class="quote-body">
+          <p>Há 3 anos eu sei o que é dormir tranquilo e não sei o que é ter um ambiente indisponível.</p>
+          <div class="person">
+            <div class="avatar">GT</div>
+            <div><b>Gustavo Tonin</b><span>Head de TI · Nordis</span></div>
+          </div>
+          <div class="case-metric">▲ Catupiry: −75% em processos críticos após migração</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section id="faq-sec" style="background:var(--bg2);border-top:1px solid var(--line)">
+  <div class="wrap">
+    <span class="kicker rv">Sem letra miúda</span>
+    <h2 class="rv d1">As perguntas que todo mundo faz <span class="grad-txt">antes de decidir</span></h2>
+    <div class="faq">
+      <div class="faq-item rv">
+        <button class="faq-q">Como funciona a cobrança do Skyone Astro? <span class="arr">+</span></button>
+        <div class="faq-a"><p>Valor fixo por usuário por mês, em reais, com o uso dos modelos incluído. Não há compra de créditos nem cobrança variável por consumo — e o painel mostra em reais quanto cada pessoa e cada equipe usou, para rateio interno.</p></div>
+      </div>
+      <div class="faq-item rv">
+        <button class="faq-q">O Astro substitui as contas pessoais de IA que meu time já usa? <span class="arr">+</span></button>
+        <div class="faq-a"><p>Sim — e esse é o ponto. Contas pessoais ficam fora do controle da empresa: sem registro do que foi perguntado, sem garantia de que dados sensíveis não saíram. O Astro oferece os mesmos modelos em ambiente corporativo, com auditoria, proteção de dados e custo consolidado.</p></div>
+      </div>
+      <div class="faq-item rv">
+        <button class="faq-q">Como garanto que dados sensíveis não cheguem ao modelo? <span class="arr">+</span></button>
+        <div class="faq-a"><p>Os guardrails analisam prompt e upload antes de qualquer modelo ver o conteúdo. CPF, CNPJ, cartão, PIX, chaves de API e senhas são validados de fato — e sua empresa pode cadastrar termos vetados e regras próprias, definindo se cada uma notifica, bloqueia ou os dois.</p></div>
+      </div>
+      <div class="faq-item rv">
+        <button class="faq-q">Fico preso a um fornecedor de modelo? <span class="arr">+</span></button>
+        <div class="faq-a"><p>Não. O usuário acessa funções (geral, complexa, rápida, código, visão, pesquisa e imagem) e o administrador define qual modelo do catálogo responde por cada uma. Trocar o motor é uma configuração do workspace — nome, atalho e rotina de quem usa não mudam.</p></div>
+      </div>
+      <div class="faq-item rv">
+        <button class="faq-q">A plataforma atende à LGPD? Preciso instalar algo? <span class="arr">+</span></button>
+        <div class="faq-a"><p>Sim à LGPD: infraestrutura Skyone, controle de acesso por perfil, 2FA obrigatório, registros detalhados e contrato em território nacional. E não, nada de instalação: o Astro é 100% nuvem, acessado pelo navegador, com autenticação corporativa e a identidade visual da sua empresa.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CTA FINAL ============ -->
+<section class="final" id="final">
+  <div class="wrap">
+    <div class="final-card rv">
+      <span class="kicker" style="justify-content:center;display:flex">A decisão simples</span>
+      <h2>Segurança. Custo. Governança<br>Três dores, <span class="lime-txt">uma plataforma</span></h2>
+      <p class="sub" style="margin:16px auto 0">Responda 5 perguntinhas — leva 30 segundos — e receba uma demonstração montada para o cenário da sua empresa.</p>
+      <a class="btn" href="#hero" onclick="focusQuiz(event)">Quero ver a demo no meu cenário →</a>
+      <div class="final-micro">
+        <span>✓ Sem cartão de crédito</span>
+        <span>✓ Sem compromisso</span>
+        <span>✓ Resposta em até 1 dia útil</span>
+        <span>✓ Dados sob a LGPD</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div style="display:flex;justify-content:center;margin-bottom:14px"><svg xmlns="http://www.w3.org/2000/svg" height="22" style="width:auto" role="img" aria-label="Skyone" class="logo-ft" viewBox="0 0 111 22" fill="none"><g clip-path="url(#clip_ftr)"><path d="M96.1016 17.1238C104.278 17.1238 110.901 10.5084 110.901 2.34131H105.368C105.368 7.43215 101.226 11.5702 96.1288 11.5702V17.0966L96.1016 17.1238Z" fill="#0517ED"></path><path d="M85.0078 17.1238C85.0078 8.95668 91.6308 2.34131 99.8073 2.34131V7.86773C94.7106 7.86773 90.5678 12.0057 90.5678 17.0966H85.0351L85.0078 17.1238Z" fill="#4FAFF8"></path><path d="M0.4089 12.8767C2.09872 13.884 4.08834 14.2924 5.26031 14.2924C6.32326 14.2924 6.95012 14.0201 6.95012 13.3395C6.95012 12.3867 5.56011 12.4956 3.73402 12.0056C1.41734 11.4339 0.0273285 10.4538 0.0273285 8.43926C0.0273285 5.82578 2.34401 4.35569 5.39658 4.35569C6.86836 4.35569 8.69445 4.65516 10.1117 5.33575V8.6026C8.47641 7.67699 6.56855 7.26864 5.47835 7.26864C4.46991 7.26864 3.8703 7.5681 3.8703 8.1398C3.8703 9.03818 5.2058 8.95651 7.03189 9.41931C9.37583 9.99101 10.8203 10.8894 10.8203 13.0128C10.8203 15.708 8.44915 17.1781 5.28756 17.1781C3.81579 17.1781 1.90793 16.8786 0.436155 16.1436V12.8223L0.4089 12.8767Z" fill="#FFFFFF"></path><path d="M12.5938 0H16.4095V9.855H16.464L20.7703 4.62804H25.1038L20.3887 10.1272L25.4582 16.9332H20.9611L16.4912 10.6445H16.4367V16.9332H12.621V0H12.5938Z" fill="#FFFFFF"></path><path d="M27.2831 21.7786H28.8367C30.8263 21.7786 32.6251 20.5535 33.3337 18.7295V18.6479L38.8938 4.65485H34.9963L32.1618 12.577L29.3273 4.65485H25.457L30.2539 16.9055L29.9814 17.5861C29.7361 18.1851 29.1365 18.5662 28.4823 18.5662H27.2559V21.8058L27.2831 21.7786Z" fill="#FFFFFF"></path><path d="M45.4894 4.35547C49.4141 4.35547 52.3577 7.15952 52.3577 10.7803C52.3577 14.401 49.4414 17.2051 45.4894 17.2051C41.5374 17.2051 38.6211 14.401 38.6211 10.7803C38.6211 7.15952 41.5374 4.35547 45.4894 4.35547ZM45.4894 13.9382C47.2065 13.9382 48.5419 12.5498 48.5419 10.7803C48.5419 9.01073 47.2065 7.62232 45.4894 7.62232C43.7723 7.62232 42.4368 9.01073 42.4368 10.7803C42.4368 12.5498 43.7723 13.9382 45.4894 13.9382Z" fill="#FFFFFF"></path><path d="M53.8553 4.62771H57.6165V5.7711H57.671C58.6249 5.00884 59.9332 4.35547 61.4867 4.35547C62.795 4.35547 63.9397 4.81827 64.7028 5.60776C65.466 6.39725 65.7658 7.4862 65.7658 9.25574V16.9328H61.9501V9.88189C61.9501 8.95628 61.8138 8.49348 61.514 8.16679C61.1869 7.78566 60.7508 7.64954 60.2057 7.64954C59.2245 7.64954 58.2979 8.13957 57.6165 8.68405V16.9601H53.8008V4.62771H53.8553Z" fill="#FFFFFF"></path><path d="M70.9169 11.7876C71.353 13.4754 72.743 14.2649 74.4873 14.2649C75.8773 14.2649 77.3764 13.8021 78.6574 12.9037V16.0889C77.4581 16.8512 75.6048 17.2051 73.9695 17.2051C69.9085 17.2051 66.9922 14.6733 66.9922 10.8347C66.9922 6.99617 70.0448 4.35547 73.4516 4.35547C76.477 4.35547 79.3387 6.3428 79.3387 10.4808C79.3387 10.9164 79.3387 11.4609 79.257 11.7876H70.8897H70.9169ZM75.8501 9.39186C75.6321 8.0579 74.6509 7.26841 73.4244 7.26841C72.1979 7.26841 71.2167 8.00345 70.8897 9.39186H75.8501Z" fill="#FFFFFF"></path></g><defs><clipPath id="clip_ftr"><rect width="110.901" height="21.779" fill="white"></rect></clipPath></defs></svg></div>
+  Skyone · Av. das Nações Unidas, 12399 · São Paulo/SP<br>
+  ISO 27001 · Great Place to Work · Finep · Esta página é uma peça de campanha: depoimentos extraídos de cases públicos em skyone.solutions/cases.
+</footer>
+
+<!-- MODAL DE VÍDEO COM TRAVA DE EXPERIÊNCIA -->
+<div class="vmodal" id="vModal" role="dialog" aria-modal="true" aria-label="Vídeo do case">
+  <button type="button" class="vclose" id="vClose">Fechar ✕</button>
+  <div class="vbox">
+    <div id="vSlot"></div>
+  </div>
+  <a class="btn vcta" href="#hero" id="vCta">Quero um resultado assim →</a>
+</div>
+
+<!-- CTA flutuante mobile -->
+<div class="float-cta"><a class="btn" href="#hero" onclick="focusQuiz(event)">Começar — leva 30s →</a></div>
+
+<script>
+if(document.fonts){document.fonts.load('24px "Material Symbols Rounded"','lock').then(f=>{if(f.length)document.documentElement.classList.add('icons-ok')});}
+/* ============ QUIZ ============ */
+const TOTAL = 5;
+let current = 1;
+const answers = { fNome:'', fEmail:'', fTel:'', fEmpresa:'', fFaturamento:'', fDor:'', fProduto:'' };
+
+const qStep = document.getElementById('qStep');
+const qBar  = document.getElementById('qBar');
+const qNext = document.getElementById('qNext');
+const qBack = document.getElementById('qBack');
+const qNav  = document.getElementById('qNav');
+
+function updateBar(){
+  qBar.style.width = ((current-1)/TOTAL*100) + '%';
+  qStep.textContent = current <= TOTAL ? ('Pergunta ' + current + ' de ' + TOTAL) : 'Concluído';
+}
+function getQ(n){ return document.querySelector('.q[data-q="'+n+'"]'); }
+
+function validate(){
+  let ok = false;
+  if(current===1) ok = document.getElementById('fNome').value.trim().length >= 3;
+  if(current===2) ok = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(document.getElementById('fEmail').value.trim());
+  if(current===3) ok = document.getElementById('fTel').value.replace(/\D/g,'').length >= 10;
+  if(current===4) ok = document.getElementById('fEmpresa').value.trim().length >= 2;
+  if(current===5) ok = answers.fFaturamento !== '';
+  qNext.disabled = !ok;
+}
+
+function goTo(n){
+  const from = getQ(current), to = getQ(n);
+  from.classList.add('leaving'); from.classList.remove('active');
+  setTimeout(()=>{ from.classList.remove('leaving'); }, 450);
+  to.classList.add('active');
+  current = n;
+  updateBar(); validate();
+  qBack.style.visibility = (n>1 && n<=TOTAL) ? 'visible' : 'hidden';
+  qNext.textContent = (n===TOTAL) ? 'Enviar ✓' : 'Continuar →';
+  const inp = to.querySelector('input');
+  if(inp) setTimeout(()=>inp.focus(), 300);
+}
+
+qNext.addEventListener('click', ()=>{
+  if(current < TOTAL){ goTo(current+1); }
+  else if(current === TOTAL){ submitQuiz(); }
+});
+qBack.addEventListener('click', ()=>{ if(current>1) goTo(current-1); });
+
+['fNome','fEmail','fEmpresa'].forEach(id=>{
+  const el = document.getElementById(id);
+  el.addEventListener('input', ()=>{ answers[id]=el.value; syncEcho(); validate(); });
+  el.addEventListener('keydown', e=>{ if(e.key==='Enter' && !qNext.disabled){ e.preventDefault(); qNext.click(); }});
+});
+
+const fTel = document.getElementById('fTel');
+fTel.addEventListener('input', ()=>{
+  let v = fTel.value.replace(/\D/g,'').slice(0,11);
+  if(v.length > 6){ v = '(' + v.slice(0,2) + ') ' + v.slice(2, v.length>10 ? 7 : v.length-4) + (v.length>10 ? '-' + v.slice(7) : (v.length>6 ? '-' + v.slice(v.length-4) : '')); }
+  else if(v.length > 2){ v = '(' + v.slice(0,2) + ') ' + v.slice(2); }
+  else if(v.length > 0){ v = '(' + v; }
+  fTel.value = v;
+  answers.fTel = v;
+  validate();
+});
+fTel.addEventListener('keydown', e=>{ if(e.key==='Enter' && !qNext.disabled){ e.preventDefault(); qNext.click(); }});
+
+document.querySelectorAll('.chips').forEach(group=>{
+  const field = group.dataset.field;
+  group.querySelectorAll('.chip').forEach(chip=>{
+    chip.addEventListener('click', ()=>{
+      group.querySelectorAll('.chip').forEach(c=>c.classList.remove('sel'));
+      chip.classList.add('sel');
+      answers[field] = chip.dataset.val;
+      validate();
+      setTimeout(()=>{ if(!qNext.disabled) qNext.click(); }, 380);
+    });
+  });
+});
+
+function syncEcho(){
+  const n = (document.getElementById('fNome').value.trim().split(' ')[0]) || 'você';
+  document.getElementById('echoNome').textContent = n;
+  document.getElementById('echoNome2').textContent = n;
+}
+
+function submitQuiz(){
+  console.log('LEAD:', JSON.stringify(answers));
+  qBar.style.width = '100%';
+  qNav.style.display = 'none';
+  goTo('done');
+  qStep.textContent = 'Concluído';
+  spawnConfetti();
+}
+
+function spawnConfetti(){
+  const shell = document.getElementById('quiz');
+  const colors = ['#DEFE52','#00B0FF','#FF5EC4','#00B0FF','#ffffff'];
+  for(let i=0;i<40;i++){
+    const c = document.createElement('span');
+    c.className = 'confetti';
+    c.style.left = (Math.random()*100) + '%';
+    c.style.background = colors[i % colors.length];
+    c.style.animationDuration = (1.2 + Math.random()*1.4) + 's';
+    c.style.animationDelay = (Math.random()*0.4) + 's';
+    shell.appendChild(c);
+    setTimeout(()=>c.remove(), 3200);
+  }
+}
+
+const burger=document.getElementById('burger'),nav=document.getElementById('nav');
+burger.addEventListener('click',()=>nav.classList.toggle('open'));
+nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>nav.classList.remove('open')));
+
+/* ===== Vitrine ===== */
+const HERO={
+  astro:["IA corporativa · Skyone Astro",'IA para o time inteiro, <span class="hl-box">sem vazar dado</span><br>e <span class="lime-txt">sem fatura em dólar.</span>',"+400 modelos de IA com bloqueio de dado sensível, auditoria de cada conversa e custo fixo em reais."],
+  autosky:["Nuvem para ERP · Autosky",'Seu ERP fora do servidor local, <span class="hl-box">sem parar</span><br>a <span class="lime-txt">operação.</span>',"Migração e operação do ERP na nuvem, gerenciadas pela Skyone. Sem hardware, sem lentidão, com custo previsível."],
+  dados:["Integração de sistemas · Skyone",'Seus sistemas <span class="hl-box">conversando</span><br>e o dado
